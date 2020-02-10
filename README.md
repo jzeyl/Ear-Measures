@@ -6,7 +6,7 @@ This set of R scripts calculates various 3D linear measurements, angles, and sur
 Importing the coordinates and running the calculation scripts:
 > Import, calculate and export MASTER.R
 
-Example input coordinates are in the 'Input' folder. The inputs are a set of fcsv files from 3D slicer and picked point files (*pp) fromMeshlab. 
+Example input coordinates are in the 'Input' folder. The inputs are a set of *.fcsv files from 3D slicer and picked point files (*pp) fromMeshlab. 
 
 Calculation files:
 
@@ -35,6 +35,6 @@ Plotting the planes and coordinates as a wireframe diagram:
 
 Combining all measurements and exporting as csv:
 
-> outputs
+> outputs.R
 
 Outputs are (1) csv with all the calculated values, (2) csv file with the angles of calculated for the tympanic membrane perimeter, (3) a coordinates file with all of the curve coordinates and computed landmarks (e.g. centroids)
