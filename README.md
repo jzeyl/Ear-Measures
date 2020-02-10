@@ -31,6 +31,8 @@ Plotting the planes and coordinates as a wireframe diagram:
 
 > plotearauto.R
 
+![alt text](/Capture.png)
+
 Combining all measurements and exporting as csv:
 
 > outputs
