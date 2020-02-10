@@ -1,6 +1,6 @@
 # Ear-measures
 
-This set of R scripts calculates various 3D linear measurements, angles, and surface areas from 3D coordinate input in the form of *.fcsv (Slicer) or *.pp (MeshLab) files. The coordinates were taken from microCT scans of ears, but can be applied to other 3D coordinate data. The import of coordinate data and the export of calculated values and computed coordinates are automated. The outputs are csv files with the computed values, csv file with the angles of interest, . In addition, there are scripts to plot wireframe diagrams based on the coordinates using the ‘rgl’ package.
+This set of R scripts calculates various 3D linear measurements, angles, and surface areas from 3D coordinate input in the form of *.fcsv (Slicer) or *.pp (MeshLab) files. The coordinates were taken from microCT scans of ears, but can be applied to other 3D coordinate data. The outputs are csv files with the computed values, csv file with the angles of interest, and csv files with the coordinates used for calculations. In addition, there are scripts to plot wireframe diagrams based on the coordinates using the ‘rgl’ package.
 
 
 Importing the coordinates and running the calculation scripts:
