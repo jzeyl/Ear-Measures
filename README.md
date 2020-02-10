@@ -6,24 +6,32 @@ In addition, there are scripts to plot wireframe diagrams based on the coordinat
 
 0_input.R Import coordinatesThe inputs are a set of fcsv files from 3D slicer and picked point files (*pp) fromMeshlab. The input/output scripts have a function to search for all the files and subfolders to find the all files of that type
 
+Importing the coordinates and running the calculation scripts:
+> Import, calculate and export MASTER.R
+
+Calculation files:
+
 > 1_Tympanic membrane area, EC object coltip 2nd position.R - calculations of tympanic membrane area
-> 5_3D planes of best fit and angles between.R
 
 > 2_Footplate area.R - calculation of footplate area
 
->3_Cochlear aqueduct area.R - calculation of cochlear aqueduct area
+> 3_Cochlear aqueduct area.R - calculation of cochlear aqueduct area
 
 > 4_Round window area.R - calculation of round window area
 
-> 
-4.R - calculations on cochlear aqueduct
+> 5_3D planes of best fit and angles between.R
 
-5.R -calculations of 3D plane of best fit for tympanic membrane and columella footplate
+> 6_Euclid_dist to plane_ EC length_ col length.R
 
-6.R -linear distance calculations
+> 7_Plotting the shortest distance from point to plane
 
-7.R - calculating angles between tympanic membrane perimeter and umbo, between 3D planes
+> 8_7_TM angles and EC_col angle
 
-8.R - plotting the wireframe diagrams, including the stl files
 
-9.R - outputting the csv files to a specified path, with ID label
+Plotting the planes and coordinates as a wireframe diagram:
+
+> plotearauto.R
+
+Combining all measurements and exporting as csv:
+
+> outputs
