@@ -18,13 +18,13 @@ Calculation files:
 
 > 4_Round window area.R - calculation of round window area
 
-> 5_3D planes of best fit and angles between.R
+> 5_3D planes of best fit and angles between.R - calculation of planes of best fit for the base of the tympanic membrane and the columella footplate, and the angle between these two planes
 
-> 6_Euclid_dist to plane_ EC length_ col length.R
+> 6_Euclid_dist to plane_ EC length_ col length.R - various 3D distance measurements
 
-> 7_Plotting the shortest distance from point to plane
+> 7_Plotting the shortest distance from point to plane - calculations for plotting the shortest distance form a point to a plane
 
-> 8_7_TM angles and EC_col angle
+> 8_TM angles and EC_col angle - calculation of angles of the tympanic membrane
 
 
 Plotting the planes and coordinates as a wireframe diagram:
