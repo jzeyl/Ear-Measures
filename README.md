@@ -6,7 +6,7 @@ This set of R scripts calculates various 3D linear measurements, angles, and sur
 Importing the coordinates and running the calculation scripts:
 > Import, calculate and export MASTER.R
 
-Example input coordinates are in the 'Input' folder. The inputs are a set of *.fcsv files from 3D slicer and picked point files (*pp) fromMeshlab. 
+Example input coordinates are in the 'Input' folder. The inputs are a set of *.fcsv files from 3D slicer and picked point files (*pp) fromMeshlab.  These are separate files for the tympanic membrane (TM), extracolumella (EC), round window (RW), cochlear aqueduct (CA) and footplate (FP).
 
 Calculation files:
 
