@@ -26,6 +26,20 @@ Calculation files:
 
 > 8_TM angles and EC_col angle - calculation of angles of the tympanic membrane
 
+Computed values:
+1	Height of tympanic membrane protrusion	(Middle ear)
+2	Distance from columella to tympanic membrane base plane	(Middle ear)
+3	Extrastapedius length	(Middle ear)
+4	Columella length	(Middle ear)
+5	Angle of tympanic membrane	(Middle ear)
+6	Angle between footplate and tympanic membrane	(Middle ear)
+7	Angle between the columella and the extracolumella	(Middle ear)
+8	Tympanic membrane area	(Middle ear)
+9	Footplate area	(Middle ear)
+10	Length of endosseous cochlear duct	(Inner ear)
+11	Cochlear aqueduct area	(Inner ear)
+12	Round window area	(Inner ear)
+
 
 Plotting the planes and coordinates as a wireframe diagram:
 
