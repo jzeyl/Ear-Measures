@@ -3,10 +3,10 @@ library(Morpho)#read.mpp function
 library(geomorph)#digit curves function
 library(rgl)#plotting
 
-setwd("I:/Feb18repeatability/RD09")
+setwd("I:/Feb18repeatability/RD10")
 getwd()
 
-ID<-"RD-09-2019"#set the specimen code to be used in naming files
+ID<-"RD-10-2019"#set the specimen code to be used in naming files
 
 #load coordinate files in this order: TM, EC, FP (pp), RW, CA
 TMperimeter<-read.fcsv(file.choose())
@@ -28,7 +28,8 @@ sapply(calculationfiles,source,.GlobalEnv)# run the calculations from the R scri
 #source(calculationfiles[4])
 
 #plot wireframe diagram of ear based input corrdinates. Will prompt for the 3D *.stl file for the columella
-source("I:/Feb 2020/plotearauto.R")
+setwd("I:/Feb18repeatability")
+source("Scan_measurements/plotearauto.R")
 
 #set output paths for saving the computed values
 outputpathsingles<-"I:/0measure RW,CA/RWCA/Outputs/Singlevalues/"#calculated values
@@ -37,7 +38,7 @@ outputpathcoords<-"I:/0measure RW,CA/RWCA/Outputs/Coordinates/"# all computed co
 snapshotpath<-"I:/0measure RW,CA/RWCA/Outputs/Snapshots/"#directory for wirefram snapshots
 
 #Save the computations and coordinates
-source("I:/Feb 2020/outputs.R")
+source("Scan_measurements/outputs.R")
 
 
 
