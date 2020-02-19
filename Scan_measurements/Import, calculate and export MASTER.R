@@ -3,10 +3,10 @@ library(Morpho)#read.mpp function
 library(geomorph)#digit curves function
 library(rgl)#plotting
 
-setwd("E:/Scan_measurements/input")
+setwd("I:/Feb18repeatability/RD09")
 getwd()
 
-ID<-"RD-04-2019"#set the specimen code to be used in naming files
+ID<-"RD-09-2019"#set the specimen code to be used in naming files
 
 #load coordinate files in this order: TM, EC, FP (pp), RW, CA
 TMperimeter<-read.fcsv(file.choose())
@@ -23,20 +23,20 @@ RWcurve<-as.data.frame(digit.curves(start = RWperimeter[1,], curve = RWperimeter
 CAcurve<-as.data.frame(digit.curves(start = CAperimeter[1,], curve = CAperimeter, nPoints = 15, closed = TRUE))#make equidistant points
 
 #run calculation scripts
-calculationfiles<-list.files("E:/Feb 2020/calculations", pattern = "*.R", full.names = TRUE)
+calculationfiles<-list.files("I:/Feb 2020/calculations", pattern = "*.R", full.names = TRUE)
 sapply(calculationfiles,source,.GlobalEnv)# run the calculations from the R scripts
 #source(calculationfiles[4])
 
 #plot wireframe diagram of ear based input corrdinates. Will prompt for the 3D *.stl file for the columella
-source("E:/Feb 2020/plotearauto.R")
+source("I:/Feb 2020/plotearauto.R")
 
 #set output paths for saving the computed values
-outputpathsingles<-"E:/0measure RW,CA/RWCA/Outputs/Singlevalues/"#calculated values
-outputpathangles<-"E:/0measure RW,CA/RWCA/Outputs/TM angles/"#angles for all 
-outputpathcoords<-"E:/0measure RW,CA/RWCA/Outputs/Coordinates/"# all computed coordinates on a single csv file
+outputpathsingles<-"I:/0measure RW,CA/RWCA/Outputs/Singlevalues/"#calculated values
+outputpathangles<-"I:/0measure RW,CA/RWCA/Outputs/TM angles/"#angles for all 
+outputpathcoords<-"I:/0measure RW,CA/RWCA/Outputs/Coordinates/"# all computed coordinates on a single csv file
 
 #Save the computations and coordinates
-source("E:/Feb 2020/outputs.R")
+source("I:/Feb 2020/outputs.R")
 
 
 
