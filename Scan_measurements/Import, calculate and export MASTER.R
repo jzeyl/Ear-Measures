@@ -3,10 +3,10 @@ library(Morpho)#read.mpp function
 library(geomorph)#digit curves function
 library(rgl)#plotting
 
-setwd("I:/Feb18repeatability/RD10")
+setwd("I:/Feb18repeatability/SAL01")#####check dir here
 getwd()
 
-ID<-"RD-10-2019"#set the specimen code to be used in naming files
+ID<-"SAL01-2019"#set the specimen code to be used in naming files
 
 #load coordinate files in this order: TM, EC, FP (pp), RW, CA
 TMperimeter<-read.fcsv(file.choose())
@@ -23,7 +23,7 @@ RWcurve<-as.data.frame(digit.curves(start = RWperimeter[1,], curve = RWperimeter
 CAcurve<-as.data.frame(digit.curves(start = CAperimeter[1,], curve = CAperimeter, nPoints = 15, closed = TRUE))#make equidistant points
 
 #run calculation scripts
-calculationfiles<-list.files("I:/Feb 2020/calculations", pattern = "*.R", full.names = TRUE)
+calculationfiles<-list.files("I:/Feb18repeatability/Scan_measurements/calculations", pattern = "*.R", full.names = TRUE)#########check dir here
 sapply(calculationfiles,source,.GlobalEnv)# run the calculations from the R scripts
 #source(calculationfiles[4])
 
