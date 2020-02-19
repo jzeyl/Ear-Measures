@@ -1,6 +1,7 @@
 # 1) file with computed values  
 # 2) file with a summary of all coordinates
 # 3) file with all the angles of the TM perimeter
+# 4)take a snapshot of the plotted wireframe diagram
 
 #SINGLE VALUE Outputs:
 
@@ -32,6 +33,7 @@ singlevallist<-c("Umbo_distancetoTMplane",
 "RWtotalarea",
 "dis_coltip_TMcentroid")
 
+#if one of the measurements isn't there/can't be measured, replace the value with 'NA'
 for (i in singlevallist){
   if(exists(i)== FALSE){
     assign(i,NA)
@@ -132,5 +134,6 @@ write.csv(angles, paste(outputpathangles,ID,"Angles summary.csv", sep = ""))
 
 #write.csv(angles, paste(ID,"Angles summary.csv", sep = "_"))
 
-#Output locations
+#snapshot output
+rgl.snapshot(paste(snapshotpath,ID,".png",sep = ""),  top = TRUE )
 

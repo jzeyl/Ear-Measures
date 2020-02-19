@@ -34,6 +34,7 @@ source("I:/Feb 2020/plotearauto.R")
 outputpathsingles<-"I:/0measure RW,CA/RWCA/Outputs/Singlevalues/"#calculated values
 outputpathangles<-"I:/0measure RW,CA/RWCA/Outputs/TM angles/"#angles for all 
 outputpathcoords<-"I:/0measure RW,CA/RWCA/Outputs/Coordinates/"# all computed coordinates on a single csv file
+snapshotpath<-"I:/0measure RW,CA/RWCA/Outputs/Snapshots/"#directory for wirefram snapshots
 
 #Save the computations and coordinates
 source("I:/Feb 2020/outputs.R")
