@@ -1,8 +1,8 @@
 library(dplyr)
 library(readr)
 
-#list the angles files in a certain file path
-singlevalsdir<-"I:/0measure RW,CA/RWCA/Outputs/Singlevalues/Feb 19"
+#list the files in a certain file path
+singlevalsdir<-"E:/0measure RW,CA/RWCA/Outputs/Singlevalues/Feb20"
 file_names<-list.files(singlevalsdir, full.names = TRUE)
 file_names_short<-list.files(singlevalsdir, full.names = FALSE)
 
@@ -18,10 +18,11 @@ remove<-c(No_x,m)
 #clean the dataframe
 clean<-df[,setdiff(names(df), remove)]#select dataframe without these columns
 clean$measures<-df$measures#add in measures column
-clean$measures<-gsub("RD-08-2019_","",clean$measures)#remove ID from column - change
+clean$measures<-gsub("RD01r1-2019_","",clean$measures)#remove ID from column 
 
 clean2<-as.data.frame(t(clean))#transpose
 colnames(clean2)<-clean$measures#add column names
 clean2<-clean2[-nrow(clean2),]#remove last row
 clean2$ID<-row.names(clean2)#switch row names to an ID column
-write.csv(clean2, "Feb19_repeatability.csv")
+write.csv(clean2, "Feb20_Rdretests.csv")
+getwd()

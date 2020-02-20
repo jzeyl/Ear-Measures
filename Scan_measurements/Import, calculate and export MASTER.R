@@ -3,10 +3,10 @@ library(Morpho)#read.mpp function
 library(geomorph)#digit curves function
 library(rgl)#plotting
 
-setwd("I:/Feb18repeatability/SAL01")#####check dir here
+setwd("E:/repeatability tests/Feb20retests/RDretests1/RD03r1")#####check dir here
 getwd()
 
-ID<-"SAL01-2019"#set the specimen code to be used in naming files
+ID<-"RD03r1-2019"#set the specimen code to be used in naming files
 
 #load coordinate files in this order: TM, EC, FP (pp), RW, CA
 TMperimeter<-read.fcsv(file.choose())
@@ -23,22 +23,22 @@ RWcurve<-as.data.frame(digit.curves(start = RWperimeter[1,], curve = RWperimeter
 CAcurve<-as.data.frame(digit.curves(start = CAperimeter[1,], curve = CAperimeter, nPoints = 15, closed = TRUE))#make equidistant points
 
 #run calculation scripts
-calculationfiles<-list.files("I:/Feb18repeatability/Scan_measurements/calculations", pattern = "*.R", full.names = TRUE)#########check dir here
+calculationfiles<-list.files("E:/repeatability tests/Feb20retests/Scan_measurements/calculations", pattern = "*.R", full.names = TRUE)#########check dir here
 sapply(calculationfiles,source,.GlobalEnv)# run the calculations from the R scripts
 #source(calculationfiles[4])
 
 #plot wireframe diagram of ear based input corrdinates. Will prompt for the 3D *.stl file for the columella
-setwd("I:/Feb18repeatability")
-source("Scan_measurements/plotearauto.R")
+setwd("E:/repeatability tests/Feb20retests/Scan_measurements")
+source("plotearauto.R")
 
 #set output paths for saving the computed values
-outputpathsingles<-"I:/0measure RW,CA/RWCA/Outputs/Singlevalues/"#calculated values
-outputpathangles<-"I:/0measure RW,CA/RWCA/Outputs/TM angles/"#angles for all 
-outputpathcoords<-"I:/0measure RW,CA/RWCA/Outputs/Coordinates/"# all computed coordinates on a single csv file
-snapshotpath<-"I:/0measure RW,CA/RWCA/Outputs/Snapshots/"#directory for wirefram snapshots
+outputpathsingles<-"E:/0measure RW,CA/RWCA/Outputs/Singlevalues/"#calculated values
+outputpathangles<-"E:/0measure RW,CA/RWCA/Outputs/TM angles/"#angles for all 
+outputpathcoords<-"E:/0measure RW,CA/RWCA/Outputs/Coordinates/"# all computed coordinates on a single csv file
+snapshotpath<-"E:/0measure RW,CA/RWCA/Outputs/Snapshots/"#directory for wirefram snapshots
 
 #Save the computations and coordinates
-source("Scan_measurements/outputs.R")
+source("outputs.R")
 
 
 

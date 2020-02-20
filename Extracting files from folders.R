@@ -26,8 +26,18 @@ chicken01<-"F:/0CT Scans/1_Jan 2019/17012019_05 Chicken/chicken back of head 16b
 Ch01 <-"F:/0CT Scans/Dec 12 crp export/07 Ch-01-2019/earcrp"
 Ch02 <-"F:/0CT Scans/Dec 12 crp export/08 Ch-02-2019"
 
+#re-tests for repeatability
+RD01r1<-"I:/0CT Scans/2_Apr26 2019/26042019_06 Rock Dove 1/rep1"
+RD02r1<-"G:/backof head analyses/Dec 12 crp export/03 RD-02-2019/backofheadall/earcrp"
+RD03r1<-"I:/0CT Scans/5_Aug 20 2019/20082019_08 RD-03-2019/earregion 16b/earcrp"
+RD04r1<-"I:/0CT Scans/5_Aug 20 2019/20082019_05 RD-04-2019/sept2/earcrp"
+RD08r1<-"G:/backof head analyses/feb6crops/RD082019/rep1"
+RD09r1<-"G:/backof head analyses/Feb7crops/RD09/rep1"
+RD10r1<-"G:/backof head analyses/feb6crops/RD102019/rep1"
+  
 #make a list of directories to check for files
 directs<-(c(RD8,RD9,RD10,SAL01,SAL03,SAL04,SAL07))
+directs<-(c(RD01r1,RD02r1,RD03r1,RD04r1,RD08r1,RD09r1,RD10r1))
 directs<-c(chicken01,Ch01,Ch02)
 directs<- c(razorbill, flamingo, adeliepenguin, 
             southgeorgiashag,SGpintail,sheathbill,
@@ -51,11 +61,11 @@ ca<- str_subset(filelist, "CA")
 
 #Loop through the file list to COPY FILES to the desired folder:
 for (i in filelist_fcsv){
-  file.copy(i, "I:/Feb18repeatability", copy.date = TRUE)
+  file.copy(i, "E:/repeatability tests/Feb20retests/RDretests1", copy.date = TRUE)
 }
 
 for (i in filelist_stl){
-  file.copy(i, "I:/Feb18repeatability", copy.date = TRUE)
+  file.copy(i, "E:/repeatability tests/Feb20retests/RDretests1", copy.date = TRUE)
 }
 
 for (i in filelist_pp){
@@ -63,8 +73,8 @@ for (i in filelist_pp){
 }
 
 #create folders
-setwd("I:/Feb18repeatability")
-folders<-c("RD08","RD09","RD10","SAL01","SAL03","SAL04","SAL07")
+setwd("E:/repeatability tests/Feb20retests/RDretests1")
+folders<-c("RD01r1","RD02r1","RD03r1","RD04r1","RD08r1","RD09r1","RD10r1")
 for (i in folders){
   dir.create(i)
 }
