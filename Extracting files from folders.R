@@ -35,7 +35,20 @@ RD08r1<-"G:/backof head analyses/feb6crops/RD082019/rep1"
 RD09r1<-"G:/backof head analyses/Feb7crops/RD09/rep1"
 RD10r1<-"G:/backof head analyses/feb6crops/RD102019/rep1"
   
+#Sal replicates
+SAL01r1<-"G:/backof head analyses/feb6crops/SAL01/rep1"
+SAL03r1<-"G:/backof head analyses/feb6crops/SAL03backofhead/rep1"
+SAL04r1<-"G:/backof head analyses/feb6crops/SAL04/rep1"
+SAL07r1<-"G:/backof head analyses/feb6crops/SAL07/rep1"
+SAL13<-"G:/backof head analyses/Dec 12 crp export/02 SAL13-2019/earcrp"
+SAL13r1<-"G:/backof head analyses/Dec 12 crp export/02 SAL13-2019/rep1"
+SAL05<-"G:/backof head analyses/Feb7crops/SAL05/earcrp"
+SAL05r1<-"G:/backof head analyses/Feb7crops/SAL05/rep1"
+
+
 #make a list of directories to check for files
+directs<-(c(SAL01r1,SAL03r1,SAL04r1,SAL05,SAL05r1,SAL07r1,SAL13,SAL13r1))
+          
 directs<-(c(RD8,RD9,RD10,SAL01,SAL03,SAL04,SAL07))
 directs<-(c(RD01r1,RD02r1,RD03r1,RD04r1,RD08r1,RD09r1,RD10r1))
 directs<-c(chicken01,Ch01,Ch02)
@@ -48,6 +61,8 @@ directs
 filelist_fcsv<-list.files(directs, pattern = ".fcsv", recursive = TRUE, full.names = TRUE)
 filelist_pp<-list.files(directs, pattern = ".pp", recursive = TRUE, full.names = TRUE)
 filelist_stl<-list.files(directs, pattern = ".stl", recursive = TRUE, full.names = TRUE)
+filelist_vtk<-list.files(directs, pattern = ".vtk", recursive = TRUE, full.names = TRUE)
+
 #filelistply<-list.files("G:/0CT Scans", pattern = ".ply", recursive = TRUE)
 
 
@@ -61,11 +76,11 @@ ca<- str_subset(filelist, "CA")
 
 #Loop through the file list to COPY FILES to the desired folder:
 for (i in filelist_fcsv){
-  file.copy(i, "E:/repeatability tests/Feb20retests/RDretests1", copy.date = TRUE)
+  file.copy(i, "E:/repeatability tests/Feb20retests/SALFeb21", copy.date = TRUE)
 }
 
 for (i in filelist_stl){
-  file.copy(i, "E:/repeatability tests/Feb20retests/RDretests1", copy.date = TRUE)
+  file.copy(i, "E:/repeatability tests/Feb20retests/SALFeb21", copy.date = TRUE)
 }
 
 for (i in filelist_pp){
