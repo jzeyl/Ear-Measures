@@ -5,8 +5,8 @@ fullperimeter<-rbind(TMcurve,TMcurve[1,])#draw perimeter of tympanic membrane
 #mfrow3d(2,2)
 #tympanic membrane and other areas
 lines3d(fullperimeter[,1],fullperimeter[,2],fullperimeter[,3], color = "red", lwd = 3)#plot curve perimeter
-lines3d(EStapTipeveryother[1:2,1],EStapTipeveryother[1:2,2],EStapTipeveryother[1:2,3], color = "red", lwd = 3)#plot TM connections to umbo
-lines3d(ColTipeveryother[,1],ColTipeveryother[,2],ColTipeveryother[,3], color = "blue", lwd = 3)#plot extracolumella
+lines3d(EStapTipeveryother[,1],EStapTipeveryother[,2],EStapTipeveryother[,3], color = "red", lwd = 3)#plot TM connections to umbo
+lines3d(ColTipeveryother[1:2,1],ColTipeveryother[1:2,2],ColTipeveryother[1:2,3], color = "blue", lwd = 3)#plot extracolumella
 lines3d(fullRW[,1],fullRW[,2],fullRW[,3], col = "green", lwd = 3)#plot round window
 lines3d(fullCA[,1],fullCA[,2],fullCA[,3], col = "orange", lwd = 3)#plot cochlear aqueduct
 lines3d(fullFP[,1],fullFP[,2],fullFP[,3], col = "black", lwd = 3)#plot footplate
