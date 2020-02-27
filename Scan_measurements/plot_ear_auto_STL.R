@@ -1,3 +1,4 @@
+setwd(directsamples)#####check dir here)
 #snapshotpath<-"J:/0measure RW,CA/RWCA/Outputs/Snapshots/"#directory for wirefram shots
 
 #plotting in rgl package

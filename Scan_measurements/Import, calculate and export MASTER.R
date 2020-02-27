@@ -3,7 +3,8 @@ library(Morpho)#read.mpp function
 library(geomorph)#digit curves function
 library(rgl)#plotting
 
-setwd("F:/repeatability tests/Feb20retests/RDretests1/RD03r1")#####check dir here
+directsamples<-setwd("F:/repeatability tests/Feb20retests/RDretests1/RD03r1")#####check dir here
+directsamples
 getwd()
 
 ID<-"test4"#set the specimen code to be used in naming files
