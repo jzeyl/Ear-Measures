@@ -51,13 +51,13 @@ if (Z > X & Y){
   TMb <- unname(coefsTM["TMcurve[, 2]"])
   TMc <- -1
   TMd <- unname(coefsTM["(Intercept)"])
-} else if (X < Z & Y){
+} else if (X > Z & Y){
   coefsTM<- coef(fitTM2)
   TMa <- -1
   TMb <- unname(coefsTM["TMcurve[, 2]"])
   TMc <- unname(coefsTM["TMcurve[, 3]"])
   TMd <- unname(coefsTM["(Intercept)"])
-} else if (Y < X & Y){
+} else if (Y > X & Y){
   coefsTM<- coef(fitTM3)
   TMa <- unname(coefsTM["TMcurve[, 1]"])
   TMb <- -1
@@ -121,13 +121,13 @@ if (Z > X & Y){
   FPb <- unname(coefsFP["FPcurve[, 2]"])
   FPc <- -1
   FPd <- unname(coefsFP["(Intercept)"])
-} else if (X < Z & Y){
+} else if (X > Z & Y){
   coefsFP<- coef(fitFP2)
   FPa <- -1
   FPb <- unname(coefsFP["FPcurve[, 2]"])
   FPc <- unname(coefsFP["FPcurve[, 3]"])
   FPd <- unname(coefsFP["(Intercept)"])
-} else if (Y < X & Y){
+} else if (Y > X & Y){
   coefsFP<- coef(fitFP3)
   FPa <- unname(coefsFP["FPcurve[, 1]"])
   FPb <- -1
