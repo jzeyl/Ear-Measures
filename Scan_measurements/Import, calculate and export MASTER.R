@@ -3,18 +3,30 @@ library(Morpho)#read.mpp function
 library(geomorph)#digit curves function
 library(rgl)#plotting
 
-directsamples<-setwd("F:/repeatability tests/SAL01r1")#####check dir here
-directsamples
-getwd()
+index<-15
 
-ID<-"SAL01r1"#set the specimen code to be used in naming files
+d_ID<-list.dirs("F:/repeatability tests/torepeat", full.names = FALSE)#list folders with IDs
+d_direct<-list.dirs("F:/repeatability tests/torepeat")#list directories
+
+direct<-setwd(d_direct[index])#go through directories
+direct<-setwd(d_direct[index])#go through directories
+ID<-d_ID[index]#go through IDs
+
+#list.files(direct)
+TM<-list.files(direct, pattern = "TM", recursive = TRUE, full.names = TRUE)
+EC<-list.files(direct, pattern = "EC", recursive = TRUE, full.names = TRUE)
+FP<-list.files(direct, pattern = "points", recursive = TRUE, full.names = TRUE)
+RW<-list.files(direct, pattern = "RW", recursive = TRUE, full.names = TRUE)
+CA<-list.files(direct, pattern = "CA", recursive = TRUE, full.names = TRUE)
+col<-list.files(direct, pattern = ".stl", recursive = TRUE, full.names = TRUE)
+
 
 #load coordinate files in this order: TM, EC, FP (pp), RW, CA
-TMperimeter<-read.fcsv(file.choose())
-ECpoints<-read.fcsv(file.choose())
-FPperimeter<-read.mpp(file.choose())#read landmarks from meshlab
-RWperimeter<-read.fcsv(file.choose())
-CAperimeter<-read.fcsv(file.choose())
+TMperimeter<-read.fcsv(TM)
+ECpoints<-read.fcsv(EC)
+FPperimeter<-read.mpp(FP)#read landmarks from meshlab
+RWperimeter<-read.fcsv(RW)
+CAperimeter<-read.fcsv(CA)
 
 #convert point curves to equidistance points using digit curves function from geomorph
 TMcurve<-as.data.frame(digit.curves(start = TMperimeter[1,], curve = TMperimeter, nPoints = 15, closed = TRUE))#make equidistant points
@@ -33,13 +45,14 @@ setwd("F:/0earmeasures/Scan_measurements/")
 source("plot_ear_auto_STL.R")
 
 #set output paths for saving the computed values
-outputpathsingles<-"E:/0measure RW,CA/RWCA/Outputs/Singlevalues/"#calculated values
-outputpathangles<-"E:/0measure RW,CA/RWCA/Outputs/TM angles/"#angles for all 
-outputpathcoords<-"E:/0measure RW,CA/RWCA/Outputs/Coordinates/"# all computed coordinates on a single csv file
+outputpathsingles<-"F:/0measure RW,CA/RWCA/Outputs/Singlevalues/"#calculated values
+outputpathangles<-"F:/0measure RW,CA/RWCA/Outputs/TM angles/"#angles for all 
+outputpathcoords<-"F:/0measure RW,CA/RWCA/Outputs/Coordinates/"# all computed coordinates on a single csv file
 snapshotpath<-"F:/0measure RW,CA/RWCA/Outputs/Snapshots/"#directory for wirefram snapshots
 STLpath<-"F:/0measure RW,CA/RWCA/Outputs/STLs/"
 
 #Save the computations and coordinates
+setwd("F:/0earmeasures/Scan_measurements/")
 source("outputs.R")
 
 
