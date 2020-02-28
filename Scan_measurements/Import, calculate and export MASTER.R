@@ -3,11 +3,11 @@ library(Morpho)#read.mpp function
 library(geomorph)#digit curves function
 library(rgl)#plotting
 
-directsamples<-setwd("F:/repeatability tests/Feb20retests/RDretests1/RD03r1")#####check dir here
+directsamples<-setwd("F:/repeatability tests/SAL01r1")#####check dir here
 directsamples
 getwd()
 
-ID<-"test4"#set the specimen code to be used in naming files
+ID<-"SAL01r1"#set the specimen code to be used in naming files
 
 #load coordinate files in this order: TM, EC, FP (pp), RW, CA
 TMperimeter<-read.fcsv(file.choose())
@@ -24,12 +24,12 @@ RWcurve<-as.data.frame(digit.curves(start = RWperimeter[1,], curve = RWperimeter
 CAcurve<-as.data.frame(digit.curves(start = CAperimeter[1,], curve = CAperimeter, nPoints = 15, closed = TRUE))#make equidistant points
 
 #run calculation scripts
-calculationfiles<-list.files("F:/earmeasures/Scan_measurements/calculations", pattern = "*.R", full.names = TRUE)#########check dir here
+calculationfiles<-list.files("F:/0earmeasures/Scan_measurements/calculations", pattern = "*.R", full.names = TRUE)#########check dir here
 sapply(calculationfiles,source,.GlobalEnv)# run the calculations from the R scripts
 #source(calculationfiles[4])
 
 #plot wireframe diagram of ear based input corrdinates. Will prompt for the 3D *.stl file for the columella
-setwd("F:/earmeasures/Scan_measurements/")
+setwd("F:/0earmeasures/Scan_measurements/")
 source("plot_ear_auto_STL.R")
 
 #set output paths for saving the computed values

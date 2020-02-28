@@ -141,6 +141,6 @@ writeSTL(paste(STLpath,ID,".stl"))
 #snapshot output
 planes3d(TMa, TMb, TMc, TMd, alpha = 0.5, color = "blue")#plot plane of tympanic membrane
 planes3d(FPa, FPb, FPc, FPd, alpha = 0.5, color = "blue")#plot plane of footplate
-rgl.snapshot(paste(snapshotpath,ID,".png",sep = ""),  top = TRUE )
+rgl.snapshot(paste(snapshotpath,ID,"2.png",sep = ""),  top = TRUE )
 
 
