@@ -73,14 +73,74 @@ if (Z > X & Y){
 #planes3d(TMa, TMb, TMc, TMd, alpha = 0.5, color = "blue")
 
 #fit footplate
-#fit 3D plane. z~ x + y
-fitFP<- lm(FPcurve[,3]~FPcurve[,1]+FPcurve[,2])
+#1 - Z
+fitFP1<- lm(FPcurve[,3]~FPcurve[,1]+FPcurve[,2])
+summary(fitFP1)
+#extract coefficients of plane 
+coefsFP<- coef(fitFP1)
+FP1a <- unname(coefsFP["FPcurve[, 1]"])
+FP1b <- unname(coefsFP["FPcurve[, 2]"])
+FP1c <- -1
+FP1d <- unname(coefsFP["(Intercept)"])
 
-coefsFP<- coef(fitFP)
-FPa <- unname(coefsFP["FPcurve[, 1]"])
-FPb <- unname(coefsFP["FPcurve[, 2]"])
-FPc <- -1
-FPd <- unname(coefsFP["(Intercept)"])
+
+#2 - X
+###################fit 3D plane. x~ y + z
+fitFP2<- lm(FPcurve[,1]~FPcurve[,2]+FPcurve[,3])
+summary(fitFP2)
+#extract coefficients of plane 
+coefsFP<- coef(fitFP2)
+FP2a <- -1
+FP2b <- unname(coefsFP["FPcurve[, 2]"])
+FP2c <- unname(coefsFP["FPcurve[, 3]"])
+FP2d <- unname(coefsFP["(Intercept)"])
+
+#3 - Y
+###################fit 3D plane. y~ x + z
+fitFP3<- lm(FPcurve[,2]~FPcurve[,1]+FPcurve[,3])
+summary(fitFP3)
+#extract coefficients of plane 
+coefsFP<- coef(fitFP3)
+FP3a <- unname(coefsFP["FPcurve[, 1]"])
+FP3b <- -1
+FP3c <- unname(coefsFP["FPcurve[, 3]"])
+FP3d <- unname(coefsFP["(Intercept)"])
+
+
+#check the different planes by plotting:
+
+Z<-summary(fitFP1)$r.squared
+X<-summary(fitFP2)$r.squared
+Y<-summary(fitFP3)$r.squared
+
+#select the fit with the greatest R2
+if (Z > X & Y){
+  #extract coefficients of plane 
+  coefsFP<- coef(fitFP1)
+  FPa <- unname(coefsFP["FPcurve[, 1]"])
+  FPb <- unname(coefsFP["FPcurve[, 2]"])
+  FPc <- -1
+  FPd <- unname(coefsFP["(Intercept)"])
+} else if (X < Z & Y){
+  coefsFP<- coef(fitFP2)
+  FPa <- -1
+  FPb <- unname(coefsFP["FPcurve[, 2]"])
+  FPc <- unname(coefsFP["FPcurve[, 3]"])
+  FPd <- unname(coefsFP["(Intercept)"])
+} else if (Y < X & Y){
+  coefsFP<- coef(fitFP3)
+  FPa <- unname(coefsFP["FPcurve[, 1]"])
+  FPb <- -1
+  FPc <- unname(coefsFP["FPcurve[, 3]"])
+  FPd <- unname(coefsFP["(Intercept)"])
+}
+
+#lines3d(fullFP[,1],fullFP[,2],fullFP[,3], col = "black", lwd = 3)#plot footplate
+#planes3d(FPa, FPb, FPc, FPd, alpha = 0.5, color = "blue")#plot plane of footplate
+#planes3d(FP3a, FP3b, FP3c, FP3d, alpha = 0.5, color = "black")
+#planes3d(FP2a, FP2b, FP2c, FP2d, alpha = 0.5, color = "blue")
+#planes3d(FP1a, FP1b, FP1c, FP1d, alpha = 0.5, color = "red")
+#planes3d(FPa, FPb, FPc, FPd, alpha = 0.5, color = "red")
 
 #plot plane of best fit of footplate plane
 #planes3d(FPa, FPb, FPc, FPd, alpha = 0.5, color = "blue")
