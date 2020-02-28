@@ -3,7 +3,7 @@ library(Morpho)#read.mpp function
 library(geomorph)#digit curves function
 library(rgl)#plotting
 
-index<-15
+index<-27
 
 d_ID<-list.dirs("F:/repeatability tests/torepeat", full.names = FALSE)#list folders with IDs
 d_direct<-list.dirs("F:/repeatability tests/torepeat")#list directories

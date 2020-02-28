@@ -149,9 +149,9 @@ if (Z > X & Y){
 #cos(angle) = abs(top/bottom)
 #top <-(a1*a2)+(B1*B2)+(C1*C2)
 #bottom<- sqrt((a1^2)+(b1^2)+(c1^2))*sqrt((a2^2)+(b2^2)+(c2^2))
-TM_FP_top <-abs((TMa*FPa)+(TMb*FPb)+(FPc*FPc))
+TM_FP_top <-abs((TMa*FPa)+(TMb*FPb)+(TMc*FPc))
 TM_FP_bottom<- sqrt((TMa^2)+(TMb^2)+(TMc^2))*sqrt((FPa^2)+(FPb^2)+(FPc^2))
-TM_FP_cosangle<- abs(TM_FP_top/TM_FP_bottom)
+TM_FP_cosangle<- TM_FP_top/TM_FP_bottom
 angle_FP_TM<-acos(TM_FP_cosangle)*180/pi# convert radians to degrees
 
 #The trigonometric functions in R use radians, not degrees, e.g. 360 degrees is 2pi radians. 
