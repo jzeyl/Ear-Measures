@@ -4,16 +4,73 @@
 #3) calculate angle between these two planes
 
 
+#1 - Z
 #tympanic membrane plane
 #fit 3D plane. z~ x + y
-fitTM<- lm(TMcurve[,3]~TMcurve[,1]+TMcurve[,2])
-
+fitTM1<- lm(TMcurve[,3]~TMcurve[,1]+TMcurve[,2])
+summary(fitTM1)
 #extract coefficients of plane 
-coefsTM<- coef(fitTM)
-TMa <- unname(coefsTM["TMcurve[, 1]"])
-TMb <- unname(coefsTM["TMcurve[, 2]"])
-TMc <- -1
-TMd <- unname(coefsTM["(Intercept)"])
+coefsTM<- coef(fitTM1)
+TM1a <- unname(coefsTM["TMcurve[, 1]"])
+TM1b <- unname(coefsTM["TMcurve[, 2]"])
+TM1c <- -1
+TM1d <- unname(coefsTM["(Intercept)"])
+
+
+#2 - X
+###################fit 3D plane. x~ y + z
+fitTM2<- lm(TMcurve[,1]~TMcurve[,2]+TMcurve[,3])
+summary(fitTM2)
+#extract coefficients of plane 
+coefsTM<- coef(fitTM2)
+TM2a <- -1
+TM2b <- unname(coefsTM["TMcurve[, 2]"])
+TM2c <- unname(coefsTM["TMcurve[, 3]"])
+TM2d <- unname(coefsTM["(Intercept)"])
+
+#3 - Y
+###################fit 3D plane. y~ x + z
+fitTM3<- lm(TMcurve[,2]~TMcurve[,1]+TMcurve[,3])
+summary(fitTM3)
+#extract coefficients of plane 
+coefsTM<- coef(fitTM3)
+TM3a <- unname(coefsTM["TMcurve[, 1]"])
+TM3b <- -1
+TM3c <- unname(coefsTM["TMcurve[, 3]"])
+TM3d <- unname(coefsTM["(Intercept)"])
+
+Z<-summary(fitTM1)$r.squared
+X<-summary(fitTM2)$r.squared
+Y<-summary(fitTM3)$r.squared
+
+#select the fit with the greatest R2
+if (Z > X & Y){
+  #extract coefficients of plane 
+  coefsTM<- coef(fitTM1)
+  TMa <- unname(coefsTM["TMcurve[, 1]"])
+  TMb <- unname(coefsTM["TMcurve[, 2]"])
+  TMc <- -1
+  TMd <- unname(coefsTM["(Intercept)"])
+} else if (X < Z & Y){
+  coefsTM<- coef(fitTM2)
+  TMa <- -1
+  TMb <- unname(coefsTM["TMcurve[, 2]"])
+  TMc <- unname(coefsTM["TMcurve[, 3]"])
+  TMd <- unname(coefsTM["(Intercept)"])
+} else if (Y < X & Y){
+  coefsTM<- coef(fitTM3)
+  TMa <- unname(coefsTM["TMcurve[, 1]"])
+  TMb <- -1
+  TMc <- unname(coefsTM["TMcurve[, 3]"])
+  TMd <- unname(coefsTM["(Intercept)"])
+}
+
+#check the different planes by plotting:
+#lines3d(fullperimeter[,1],fullperimeter[,2],fullperimeter[,3], color = "red", lwd = 3)#plot curve perimeter
+#planes3d(TM3a, TM3b, TM3c, TM3d, alpha = 0.5, color = "blue")
+#planes3d(TM2a, TM2b, TM2c, TM2d, alpha = 0.5, color = "blue")
+#planes3d(TM1a, TM1b, TM1c, TM1d, alpha = 0.5, color = "blue")
+#planes3d(TMa, TMb, TMc, TMd, alpha = 0.5, color = "blue")
 
 #fit footplate
 #fit 3D plane. z~ x + y
