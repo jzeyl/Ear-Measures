@@ -45,6 +45,26 @@ SAL13r1<-"G:/backof head analyses/Dec 12 crp export/02 SAL13-2019/rep1"
 SAL05<-"G:/backof head analyses/Feb7crops/SAL05/earcrp"
 SAL05r1<-"G:/backof head analyses/Feb7crops/SAL05/rep1"
 
+razorbill<-"G:/0CT Scans/4_Cambridge Jul 2019/Razorbill [2019-07-22 12.22.36]/Razorbill_01/earcrp/Nov 26 16bit"
+
+#directories Mar 3, 2020
+ZF01<-"E:/0backof head analyses/Dec 12 crp export/01 ZF-01-2019/crp"
+D001<-"E:/0backof head analyses/Dec 12 crp export/04D001 2019/crp"
+RZB01<-"G:/0CT Scans/4_Cambridge Jul 2019/Razorbill [2019-07-22 12.22.36]/Razorbill_01/earcrp/Nov 26 16bit"
+GF01<-"G:/0CT Scans/6_Sept 2 2019/02092019_01 GF-02-2019/earregionCAF"
+SGDP01<-"G:/0CT Scans/4_Cambridge Jul 2019/SGDP-01-2014 [2019-07-23 10.01.00]/SGDP-01-2014_01/earcrp"
+STK01<-"G:/0CT Scans/5_Aug 20 2019/20082019_01 STK-01-2019/stk16b"
+RWS01<-"G:/0CT Scans/6_Sept 2 2019/02092019_03 RWS-01-2019/rwsexport"
+Ch01 <-"E:/0backof head analyses/Dec 12 crp export/07 Ch-01-2019/earcrp"
+Ch02 <-"E:/0backof head analyses/Dec 12 crp export/08 Ch-02-2019"
+GBBG01<-"G:/0CT Scans/4_Cambridge Jul 2019/Great black backed gull [2019-07-23 16.36.41]/Great black backed gull_01/col aug12"
+
+directs<-c(ZF01,D001,RZB01,GF01,SGDP01,STK01,RWS01,Ch01,Ch02,GBBG01)
+
+directs<-c(Ch01,Ch02)
+
+
+directs<-as.list(ls())
 
 #make a list of directories to check for files
 directs<-(c(SAL01r1,SAL03r1,SAL04r1,SAL05,SAL05r1,SAL07r1,SAL13,SAL13r1))
@@ -76,11 +96,11 @@ ca<- str_subset(filelist, "CA")
 
 #Loop through the file list to COPY FILES to the desired folder:
 for (i in filelist_fcsv){
-  file.copy(i, "E:/repeatability tests/Feb20retests/SALFeb21", copy.date = TRUE)
+  file.copy(i, "F:/mar3 batch", copy.date = TRUE)
 }
 
 for (i in filelist_stl){
-  file.copy(i, "E:/repeatability tests/Feb20retests/SALFeb21", copy.date = TRUE)
+  file.copy(i, "F:/mar3 batch", copy.date = TRUE)
 }
 
 for (i in filelist_pp){
@@ -88,13 +108,43 @@ for (i in filelist_pp){
 }
 
 #create folders
-setwd("E:/repeatability tests/Feb20retests/RDretests1")
-folders<-c("RD01r1","RD02r1","RD03r1","RD04r1","RD08r1","RD09r1","RD10r1")
+setwd("F:/mar3 batch/")
+#folders<-c("RD01r1","RD02r1","RD03r1","RD04r1","RD08r1","RD09r1","RD10r1")
+folders<-c("ZF01","D001","RZB01","GF01","SGDP01","STK01","RWS01","Ch01","Ch02","GBBG01")
+  
+objects[c(1,2,3,7,8,9,11,12,13,14,15)]
 for (i in folders){
   dir.create(i)
 }
 
 
+#Nov 13 batch
+length(list.files("F:/0measure RW,CA/Coordinate input/Nov 13 batch/Atpet-01-2019"))
+length(list.files("F:/0measure RW,CA/Coordinate input/Nov 13 batch/Bcrane-01-2019"))
+length(list.files("F:/0measure RW,CA/Coordinate input/Nov 13 batch/BG-01-2019"))
+length(list.files("F:/0measure RW,CA/Coordinate input/Nov 13 batch/CP-01-2019"))
+length(list.files("F:/0measure RW,CA/Coordinate input/Nov 13 batch/EG-01-2019"))
+length(list.files("F:/0measure RW,CA/Coordinate input/Nov 13 batch/GP-01-2019"))
+length(list.files("F:/0measure RW,CA/Coordinate input/Nov 13 batch/OY002 SANCCOB-2019"))
+length(list.files("F:/0measure RW,CA/Coordinate input/Nov 13 batch/RC-01-2019"))
+length(list.files("F:/0measure RW,CA/Coordinate input/Nov 13 batch/RK-01-2019"))
+length(list.files("F:/0measure RW,CA/Coordinate input/Nov 13 batch/RTTB-01-2019"))
+length(list.files("F:/0measure RW,CA/Coordinate input/Nov 13 batch/SP-01-2019"))
+
+#Oct 24-25 batch
+length(list.files("F:/0measure RW,CA/Coordinate input/Oct24_25batch/G045"))
+length(list.files("F:/0measure RW,CA/Coordinate input/Oct24_25batch/Guil01"))
+length(list.files("F:/0measure RW,CA/Coordinate input/Oct24_25batch/MB-01-2019"))
+length(list.files("F:/0measure RW,CA/Coordinate input/Oct24_25batch/PC-01-2019"))
+length(list.files("F:/0measure RW,CA/Coordinate input/Oct24_25batch/PS-01-2019"))
+
+#batch sept 17
+dirstoadd<-c("AP253-2019","BO-01-2019","BSH-01-2019","CC209-01-2019","CDP-01-2019","chicken01-2019",
+  "CMH-01-2019","ED-01-2019","Gimmer-01-2019","GBBG-01-2019","Ostrich-01-2019","Puffin-01-2019","STK-01-2019")
+
+for (i in dirstoadd){
+  dir.create(paste("F:/0measure RW,CA/Coordinate input/Sept 17/",i))
+}
  
 
 =======
