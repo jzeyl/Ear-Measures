@@ -61,6 +61,20 @@ GBBG01<-"G:/0CT Scans/4_Cambridge Jul 2019/Great black backed gull [2019-07-23 1
 
 directs<-c(ZF01,D001,RZB01,GF01,SGDP01,STK01,RWS01,Ch01,Ch02,GBBG01)
 
+#directories mar 4, 2020
+SGPT01<-"G:/0CT Scans/4_Cambridge Jul 2019/SGPT-01-1994 [2019-07-22 15.41.43]/SGPT-01-1994_01/colaug13"
+SGS01<-"G:/0CT Scans/4_Cambridge Jul 2019/SGS-01-2017 [2019-07-23 12.42.20]/SGS-01-2017_01/earregion"
+Puffin01<-"G:/0CT Scans/4_Cambridge Jul 2019/Puffin [2019-07-22 10.03.02]/Puffin_01/16bit"#wd
+HI01<- "E:/0backof head analyses/Oct 30 earregion expt/7_HI-02-2019"
+OP01<-"E:/0backof head analyses/Oct 17export/5_OP"
+OWP01<-"G:/0CT Scans/2_Apr26 2019/26042019_08 Olive Woodpecker/oWP back of head crop oc 17/earcrp"
+NGP01<-"G:/0CT Scans/2_Apr26 2019/26042019_01 Giant Petrel 1/giant petrel01/earcrp"
+SB01<-"G:/0CT Scans/0_JZ microCT scans/sheathbill/sheathbill test march/sheahbill data/05032018_02 Sheathbill dry/stack/earcrp"
+EG01<-"G:/0CT Scans/3_Jul19 2019/19072019_04 EG001/EG back of head oct 17"
+
+directs<-c(SGPT01,SGS01,Puffin01,HI01,OP01,OWP01,NGP01,SB01,EG01)
+
+
 directs<-c(Ch01,Ch02)
 
 
@@ -96,11 +110,11 @@ ca<- str_subset(filelist, "CA")
 
 #Loop through the file list to COPY FILES to the desired folder:
 for (i in filelist_fcsv){
-  file.copy(i, "F:/mar3 batch", copy.date = TRUE)
+  file.copy(i, "F:/Mar4batch", copy.date = TRUE)
 }
 
 for (i in filelist_stl){
-  file.copy(i, "F:/mar3 batch", copy.date = TRUE)
+  file.copy(i, "F:/Mar4batch", copy.date = TRUE)
 }
 
 for (i in filelist_pp){
@@ -112,10 +126,12 @@ setwd("F:/mar3 batch/")
 #folders<-c("RD01r1","RD02r1","RD03r1","RD04r1","RD08r1","RD09r1","RD10r1")
 folders<-c("ZF01","D001","RZB01","GF01","SGDP01","STK01","RWS01","Ch01","Ch02","GBBG01")
   
-objects[c(1,2,3,7,8,9,11,12,13,14,15)]
+folders<-c("SGPT-01-2019","SGS-01-2019","Puffin01-2019","HI-01-2019","OP-01-2019","OWP-01-2019","NGP-01-2019","SB-01-2019","EG-01-2019")
+
 for (i in folders){
   dir.create(i)
 }
+getwd()
 
 
 #Nov 13 batch
