@@ -3,13 +3,13 @@ library(Morpho)#read.mpp function
 library(geomorph)#digit curves function
 library(rgl)#plotting
 
-index<-27
+d_ID<-list.dirs("F:/Mar16batch", full.names = FALSE)#list folders with IDs
+d_direct<-list.dirs("F:/Mar16batch")#list directories
 
-d_ID<-list.dirs("F:/repeatability tests/torepeat", full.names = FALSE)#list folders with IDs
-d_direct<-list.dirs("F:/repeatability tests/torepeat")#list directories
+index<-7
 
 direct<-setwd(d_direct[index])#go through directories
-direct<-setwd(d_direct[index])#go through directories
+#direct<-setwd(d_direct[index])#go through directories
 ID<-d_ID[index]#go through IDs
 
 #list.files(direct)
@@ -19,7 +19,6 @@ FP<-list.files(direct, pattern = "points", recursive = TRUE, full.names = TRUE)
 RW<-list.files(direct, pattern = "RW", recursive = TRUE, full.names = TRUE)
 CA<-list.files(direct, pattern = "CA", recursive = TRUE, full.names = TRUE)
 col<-list.files(direct, pattern = ".stl", recursive = TRUE, full.names = TRUE)
-
 
 #load coordinate files in this order: TM, EC, FP (pp), RW, CA
 TMperimeter<-read.fcsv(TM)
@@ -44,6 +43,7 @@ sapply(calculationfiles,source,.GlobalEnv)# run the calculations from the R scri
 setwd("F:/0earmeasures/Scan_measurements/")
 source("plot_ear_auto_STL.R")
 
+####CHECK OUTPUT PATH DRIVE IS GOING TO CORRECT USB/ HARD DRIVE"
 #set output paths for saving the computed values
 outputpathsingles<-"F:/0measure RW,CA/RWCA/Outputs/Singlevalues/"#calculated values
 outputpathangles<-"F:/0measure RW,CA/RWCA/Outputs/TM angles/"#angles for all 
