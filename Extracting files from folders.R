@@ -73,7 +73,18 @@ SB01<-"G:/0CT Scans/0_JZ microCT scans/sheathbill/sheathbill test march/sheahbil
 EG01<-"G:/0CT Scans/3_Jul19 2019/19072019_04 EG001/EG back of head oct 17"
 
 directs<-c(SGPT01,SGS01,Puffin01,HI01,OP01,OWP01,NGP01,SB01,EG01)
+#Mar 16, 2020
 
+
+H414_2019<-"G:/0CT Scans/1_Jan 2019/17012019_04 H414/backofhead export oc 17/earcrp"
+BO_02_2019<-"G:/0CT Scans/5_Aug 20 2019/20082019_03 BO-02-2019/barn owl ear export/earcpfull ECDmar13"
+Ostrich01_2019<-"G:/0CT Scans/2_Apr26 2019/26042019_07 Ostrich 1/ostrich back of head 16b/ost"
+ADP01_2019<-"G:/0CT Scans/4_Cambridge Jul 2019/ADP-01-2019 [2019-07-23 13.19.23]/ADP-01-2019_01/crpears"
+BP_01_2019<-"G:/0CT Scans/4_Cambridge Jul 2019/BP-01-2011 [2019-07-23 14.15.05]/BP-01-2011_01/colaug12"
+AP253_2019<-"G:/0CT Scans/1_Jan 2019/17012019_07 AP253/AP253 back of head/earcrp"
+
+directs<-c(H414_2019,         BO_02_2019,       Ostrich01_2019,       ADP01_2019,
+             BP_01_2019,           AP253_2019)
 
 directs<-c(Ch01,Ch02)
 
@@ -110,11 +121,11 @@ ca<- str_subset(filelist, "CA")
 
 #Loop through the file list to COPY FILES to the desired folder:
 for (i in filelist_fcsv){
-  file.copy(i, "F:/Mar4batch", copy.date = TRUE)
+  file.copy(i, "F:/Mar16batch", copy.date = TRUE)
 }
 
 for (i in filelist_stl){
-  file.copy(i, "F:/Mar4batch", copy.date = TRUE)
+  file.copy(i, "F:/Mar16batch", copy.date = TRUE)
 }
 
 for (i in filelist_pp){
@@ -127,6 +138,9 @@ setwd("F:/mar3 batch/")
 folders<-c("ZF01","D001","RZB01","GF01","SGDP01","STK01","RWS01","Ch01","Ch02","GBBG01")
   
 folders<-c("SGPT-01-2019","SGS-01-2019","Puffin01-2019","HI-01-2019","OP-01-2019","OWP-01-2019","NGP-01-2019","SB-01-2019","EG-01-2019")
+
+folders<-c("H414_2019",         "BO_02_2019",       "Ostrich01_2019",       "ADP01_2019",
+  "BP_01_2019",           "AP253_2019")
 
 for (i in folders){
   dir.create(i)
