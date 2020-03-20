@@ -3,7 +3,7 @@ library(Morpho)#read.mpp function
 library(geomorph)#digit curves function
 library(rgl)#plotting
 
-index<-5
+index<-17
 
 for (i in 1:2){
 d_ID<-list.dirs("D:/Input/torepeat/", full.names = FALSE)#list folders with IDs
@@ -52,7 +52,7 @@ outputfcsv<-"D:/Outputs/FCSVs/"
 STLpath<-"D:/Outputs/STLs/"
 
 #Save the computations and coordinates
-setwd("F:/0earmeasures/Scan_measurements/")
+setwd("D:/0earmeasures/Scan_measurements/")
 source("outputs.R")
 
 
