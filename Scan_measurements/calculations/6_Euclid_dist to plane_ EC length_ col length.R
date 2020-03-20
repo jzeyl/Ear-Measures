@@ -32,7 +32,7 @@ totalcollength<-sqrt(collength[,1]+collength[,2]+collength[,3])
 #5) dist_coltip_TMcentroid
 dis_coltip_TMcentroid<-(TMcentroid-Coltip)^2
 dis_coltip_TMcentroid<-sqrt(dis_coltip_TMcentroid[,1]+dis_coltip_TMcentroid[,2]+dis_coltip_TMcentroid[,3])
-
+coltoTMcentroid<-rbind(TMcentroid,Coltip)
 
 #6) endosseous cochlear duct ECDlength
 FPcentroidsingle<-as.data.frame(cbind(mean(FPcurve[,1]),mean(FPcurve[,2]),mean(FPcurve[,3])))#calculate centroid

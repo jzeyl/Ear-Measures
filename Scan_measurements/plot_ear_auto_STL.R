@@ -14,9 +14,10 @@ lines3d(fullFP[,1],fullFP[,2],fullFP[,3], col = "black", lwd = 3)#plot footplate
 lines3d(FP_ECD[,1],FP_ECD[,2],FP_ECD[,3], col = "purple", lwd = 3)#plot endosseous cochlear duct
 lines3d(TMpoint[,1],TMpoint[,2],TMpoint[,3], col = "green", lwd = 3)
 lines3d(colTMpoint[,1],colTMpoint[,2],colTMpoint[,3], col = "green", lwd = 3)
+lines3d(coltoTMcentroid[,1],coltoTMcentroid[,2],coltoTMcentroid[,3], col = "brown", lwd = 3)
 colmodel<-readSTL(col)#add columella stl model
 
-#planes3d(TMa, TMb, TMc, TMd, alpha = 0.5, color = "blue")#plot plane of tympanic membrane
+planes3d(TMa, TMb, TMc, TMd, alpha = 0.5, color = "blue")#plot plane of tympanic membrane
 #planes3d(FPa, FPb, FPc, FPd, alpha = 0.5, color = "blue")#plot plane of footplate
 
 #axes3d()#axes

@@ -3,7 +3,7 @@
 
 #Make umbo(TMtip), columella tip, coordinate objects
 TMtipsingle<-ECpoints[1,]#umbo is first landmark
-Coltip<-ECpoints[2,]#note here order of landmarks matters
+Coltip<-ECpoints[2,]#note here order of landmarks matters<-----------------------------------------
 TMtip<-ECpoints[1,]
 
 #Calculate total 3D distance BETWEEN TM perimeter points
@@ -52,7 +52,7 @@ ECdoubled <- ECpoints[rep(1:nrow(ECpoints),1,each=2),]# double all rows
 ECdoubled<-as.data.frame(ECdoubled)
 
 # replace the duplicates rows with the columella tip point
-ECdoubled[seq(2, dim(ECdoubled)[1], by=2), ] <- ECpoints[2,]#ensure correct order of landmarks
+ECdoubled[seq(2, dim(ECdoubled)[1], by=2), ] <- ECpoints[2,]#ensure correct order of landmarks<-----------------------------------------
 ECdoubled<-ECdoubled[-c(9,10),]#remove ECD tip for plotting
 ColTipeveryother<-as.data.frame(ECdoubled)#dataframe for plotting extracolumella with 3 processes
 
@@ -61,5 +61,5 @@ ColTipeveryother<-as.data.frame(ECdoubled)#dataframe for plotting extracolumella
 TMcurvedoubled <- TMcurve[rep(1:nrow(TMcurve),1,each=2),]# double all rows 
 TMcurvedoubled<-as.data.frame(TMcurvedoubled)
 
-TMcurvedoubled[seq(2, dim(TMcurvedoubled)[1], by=2), ] <- ECpoints[1,]# replace all duplicates with columella tip point
+TMcurvedoubled[seq(2, dim(TMcurvedoubled)[1], by=2), ] <- ECpoints[1,]# replace all duplicates with extracolumella tip point
 EStapTipeveryother<-as.data.frame(TMcurvedoubled)#<-dataframe for plotting TM

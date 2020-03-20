@@ -144,3 +144,67 @@ planes3d(FPa, FPb, FPc, FPd, alpha = 0.5, color = "blue")#plot plane of footplat
 rgl.snapshot(paste(snapshotpath,ID,".png",sep = ""),  top = TRUE )
 
 
+
+#individual FCSV and stl wireframe output
+dir.create(paste0(outputfcsv,"/",ID))
+#RW
+write.fcsv(fullRW,paste0(outputfcsv,ID, "/_RW.fcsv"))
+rgl.clear()
+lines3d(fullRW[,1],fullRW[,2],fullRW[,3], col = "green", lwd = 3)#plot round window
+writeSTL(paste0(outputfcsv,ID, "/",ID,"_RW.stl"))
+
+#CA
+write.fcsv(fullCA,paste0(outputfcsv,ID, "/_CA.fcsv"))
+rgl.clear()
+lines3d(fullCA[,1],fullCA[,2],fullCA[,3], col = "green", lwd = 3)#plot round window
+writeSTL(paste0(outputfcsv,ID, "/",ID,"_CA.stl"))
+
+#FP
+write.fcsv(fullFP,paste0(outputfcsv,ID, "/_FP.fcsv"))
+rgl.clear()
+lines3d(fullFP[,1],fullFP[,2],fullFP[,3], col = "green", lwd = 3)#plot round window
+writeSTL(paste0(outputfcsv,ID, "/",ID,"_FP.stl"))
+
+#TM
+TMFULL<-rbind(fullperimeter,EStapTipeveryother)
+write.fcsv(TMFULL,paste0(outputfcsv,ID, "/_TM.fcsv"))
+rgl.clear()
+lines3d(fullperimeter[,1],fullperimeter[,2],fullperimeter[,3], color = "red", lwd = 3)#plot curve perimeter
+lines3d(EStapTipeveryother[,1],EStapTipeveryother[,2],EStapTipeveryother[,3], color = "red", lwd = 3)#plot TM connections to umbo
+writeSTL(paste0(outputfcsv,ID, "/",ID,"_TM.stl"))
+
+#TMplane
+rgl.clear()
+lines3d(fullperimeter[,1],fullperimeter[,2],fullperimeter[,3], color = "red", lwd = 3)#plot curve perimeter
+lines3d(EStapTipeveryother[,1],EStapTipeveryother[,2],EStapTipeveryother[,3], color = "red", lwd = 3)#plot TM connections to umbo
+lines3d(TMpoint[,1],TMpoint[,2],TMpoint[,3], col = "green", lwd = 3)
+planes3d(TMa, TMb, TMc, TMd, alpha = 0.5, color = "blue")#plot plane of tympanic membrane
+writeSTL(paste0(outputfcsv,ID, "/",ID,"_TMplane.stl"))
+
+#coldisttoTMplane
+write.fcsv(colTMpoint,paste0(outputfcsv,ID, "/",ID,"_distoTMplane.fcsv"))
+rgl.clear()
+lines3d(colTMpoint[,1],colTMpoint[,2],colTMpoint[,3], col = "green", lwd = 3)
+writeSTL(paste0(outputfcsv,ID, "/",ID,"_distoTMplane.stl"))
+
+#UmbotoTMplane
+write.fcsv(TMpoint,paste0(outputfcsv,ID, "/",ID,"_umbotoTMplane.fcsv"))
+rgl.clear()
+lines3d(TMpoint[,1],TMpoint[,2],TMpoint[,3], col = "green", lwd = 3)
+writeSTL(paste0(outputfcsv,ID, "/",ID,"_umbotoTMplane.stl"))
+
+#Disttocentroid
+write.fcsv(coltoTMcentroid,paste0(outputfcsv,ID, "/",ID,"_coltoTMcentroid.fcsv"))
+rgl.clear()
+lines3d(coltoTMcentroid[,1],coltoTMcentroid[,2],coltoTMcentroid[,3], col = "green", lwd = 3)
+writeSTL(paste0(outputfcsv,ID, "/",ID,"_coltoTMcentroid.stl"))
+
+#ECD length
+write.fcsv(TMpoint,paste0(outputfcsv,ID, "/",ID,"_ECDlength.fcsv"))
+rgl.clear()
+lines3d(FP_ECD[,1],FP_ECD[,2],FP_ECD[,3], col = "purple", lwd = 3)#plot endosseous cochlear duct
+writeSTL(paste0(outputfcsv,ID, "/",ID,"_ECDlength.stl"))
+
+
+
+
