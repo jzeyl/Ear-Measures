@@ -3,11 +3,11 @@ library(Morpho)#read.mpp function
 library(geomorph)#digit curves function
 library(rgl)#plotting
 
-index<-17
+index<-2
 
 for (i in 1:2){
-d_ID<-list.dirs("D:/Input/torepeat/", full.names = FALSE)#list folders with IDs
-d_direct<-list.dirs("D:/Input/torepeat/")#list directories
+d_ID<-list.dirs("D:/Input/May1 salvinprionsreplicates", full.names = FALSE)#list folders with specimens
+d_direct<-list.dirs("D:/Input/May1 salvinprionsreplicates")#list folder directories, 1 folder per specimen
 direct<-setwd(d_direct[index])#go through directories
 ID<-d_ID[index]#go through IDs
 }

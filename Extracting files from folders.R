@@ -88,8 +88,20 @@ directs<-c(H414_2019,         BO_02_2019,       Ostrich01_2019,       ADP01_2019
 
 directs<-c(Ch01,Ch02)
 
+#May 1 2020
+SAL01r2_2019<-"E:/0backof head analyses/feb6crops/SAL01/rep2"
+SAL03r2_2019<-"E:/0backof head analyses/feb6crops/SAL03backofhead/rep2"
+SAL04r2_2019<-"E:/0backof head analyses/feb6crops/SAL04/rep2"
+SAL07r2_2019<-"E:/0backof head analyses/feb6crops/SAL07/rep2"
+SAL05r2_2019<-"E:/0backof head analyses/Feb7crops/SAL05/rep2"
+SAL13r2_2019<-"E:/0backof head analyses/Dec 12 crp export/02 SAL13-2019/rep2"
+directs<-(c(SAL01r2_2019,
+            SAL03r2_2019,
+            SAL04r2_2019,
+            SAL07r2_2019,
+            SAL05r2_2019))
+directs<-SAL13r2_2019
 
-directs<-as.list(ls())
 
 #make a list of directories to check for files
 directs<-(c(SAL01r1,SAL03r1,SAL04r1,SAL05,SAL05r1,SAL07r1,SAL13,SAL13r1))
@@ -121,20 +133,27 @@ ca<- str_subset(filelist, "CA")
 
 #Loop through the file list to COPY FILES to the desired folder:
 for (i in filelist_fcsv){
-  file.copy(i, "F:/Mar16batch", copy.date = TRUE)
+  file.copy(i, "D:/May1 salvinprionsreplicates", copy.date = TRUE)
 }
 
 for (i in filelist_stl){
-  file.copy(i, "F:/Mar16batch", copy.date = TRUE)
+  file.copy(i, "D:/May1 salvinprionsreplicates", copy.date = TRUE)
 }
 
 for (i in filelist_pp){
-  file.copy(i, "J:/Nov28batch", copy.date = TRUE)
+  file.copy(i, "D:/May1 salvinprionsreplicates", copy.date = TRUE)
 }
 
 #create folders
-setwd("F:/mar3 batch/")
+setwd("D:/May1 salvinprionsreplicates/")
 #folders<-c("RD01r1","RD02r1","RD03r1","RD04r1","RD08r1","RD09r1","RD10r1")
+folders<-c("SAL01r2_2019",
+"SAL03r2_2019",
+"SAL04r2_2019",
+"SAL07r2_2019",
+"SAL05r2_2019")
+folders<-"SAL13r2_2019"
+
 folders<-c("ZF01","D001","RZB01","GF01","SGDP01","STK01","RWS01","Ch01","Ch02","GBBG01")
   
 folders<-c("SGPT-01-2019","SGS-01-2019","Puffin01-2019","HI-01-2019","OP-01-2019","OWP-01-2019","NGP-01-2019","SB-01-2019","EG-01-2019")
