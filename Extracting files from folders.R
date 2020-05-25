@@ -1,4 +1,58 @@
 <<<<<<< HEAD
+CDP01<-"F:/0CT Scans/4_Cambridge Jul 2019/CDP-01-2019 [2019-07-22 17.08.11]/CDP-01-2019_01/test cropped from raw"
+Gimmer01<-"F:/0morphosource witmer/gavia/measuresmay21"
+Eider01<-"F:/0CT Scans/4_Cambridge Jul 2019/Eider [2019-07-22 13.01.21]/Eider_01/correct may 21"
+
+CRC01<-"F:/0CT Scans/3_Jul19 2019/19072019_03 CRC003/ear extracted oct 17/earcrp"
+SSW01<-"F:/0CT Scans/1_Jan 2019/17012019_03 Sooty shearwater/sootybac of head 17b/earcrp"
+K151<-"F:/0CT Scans/1_Jan 2019/18012018_09 K151/k151 oct17 16bbackofhead/earcrp"
+
+SGdivingpetrel<-"F:/0CT Scans/4_Cambridge Jul 2019/SGDP-01-2014 [2019-07-23 10.01.00]/SGDP-01-2014_01/earcrp"
+flamingo<-"F:/0CT Scans/1_Jan 2019/17012019_02 Flamingo/flamingo back of head oct17/earcrp"
+WCP3<-"F:/0CT Scans/0_JZ microCT scans/petral2 and 3 repeat/12102018_03 Petrel3 no filter/backofhead export oct 17"
+
+directs<- c(CDP01,Gimmer01,Eider01,CRC01,SSW01,K151,SGdivingpetrel,flamingo,WCP3)
+
+Bankcorm<-
+Greatshearwater
+
+pastee(direct,)
+folders<-c("CDP01","Gimmer01","Eider01","CRC01","SSW01","K151","SGdivingpetrel","flamingo","WCP3")
+
+#put lists of files for each species into a master list of lists
+fcsvmasterlist<-list()
+for (i in seq_along(directs)){
+  fcsvmasterlist[[i]]<-list.files(directs[i], pattern = ".fcsv", recursive = FALSE, full.names = TRUE)
+}
+
+#Make objects with list the files of different file types. Recursive indicates checking subfolders
+filelist_fcsv<-list.files(directs, pattern = ".fcsv", recursive = FALSE, full.names = TRUE)
+filelist_pp<-list.files(directs, pattern = ".pp", recursive = FALSE, full.names = TRUE)
+filelist_stl<-list.files(directs, pattern = ".stl", recursive = FALSE, full.names = TRUE)
+
+#place the files directly in the folders assigned to them
+for (i in seq_along(fcsvmasterlist)){
+  for (j in seq_along(folders)){
+    file.copy(fcsvmasterlist[[i]][j], paste0("D:/Input/may25_2019","/",folders[i]), copy.date = TRUE)
+  }
+}
+
+dir.create("D:/Input/may25_2019")
+setwd("D:/Input/may25_2019")
+##############################create folders
+for (i in folders){
+  dir.create(i)
+}
+#Loop through the file list to COPY FILES to the desired folder:
+for (i in filelist_fcsv){
+  file.copy(i, "D:/Input/may25_2019", copy.date = TRUE)
+}
+
+for (i in filelist_stl){
+  file.copy(i, "D:/Input/may25_2019", copy.date = TRUE)
+}
+
+
 
 #Input the directories to check for files 
 adeliepenguin<-"G:/0CT Scans/4_Cambridge Jul 2019/ADP-01-2019 [2019-07-23 13.19.23]/ADP-01-2019_01/crpears"
@@ -102,6 +156,27 @@ directs<-(c(SAL01r2_2019,
             SAL05r2_2019))
 directs<-SAL13r2_2019
 
+D:\0backof head analyses\Dec 12 crp export\03 RD-02-2019\backofheadall\rep 2
+#may 3 2020
+RD02r2_2019<-"D:/0backof head analyses/Dec 12 crp export/03 RD-02-2019/backofheadall/rep 2"
+RD08r2_2019<-"D:/0backof head analyses/feb6crops/RD082019/rep2"
+RD10r2_2019<-"D:/0backof head analyses/feb6crops/RD102019/rep2"
+RD09r2_2019<-"D:/0backof head analyses/Feb7crops/RD09/rep2"
+directs<-c(RD02r2_2019,
+           RD08r2_2019,
+           RD10r2_2019,
+           RD09r2_2019)
+directs<-RD08r2_2019
+
+RD01r2_2019<-"F:/0CT Scans/2_Apr26 2019/26042019_06 Rock Dove 1/rep2"
+RD03r2_2019<-"F:/0CT Scans/5_Aug 20 2019/20082019_08 RD-03-2019/earregion 16b/rep2"
+RD04r2_2019<-"F:/0CT Scans/5_Aug 20 2019/20082019_05 RD-04-2019/sept2/rep2"
+directs<-c(RD01r2_2019,
+           RD03r2_2019,
+           RD04r2_2019)
+folders<-c("RD01r2_2019",
+           "RD03r2_2019",
+           "RD04r2_2019")
 
 #make a list of directories to check for files
 directs<-(c(SAL01r1,SAL03r1,SAL04r1,SAL05,SAL05r1,SAL07r1,SAL13,SAL13r1))
@@ -115,10 +190,10 @@ directs<- c(razorbill, flamingo, adeliepenguin,
 directs
 
 #Make objects with list the files of different file types. Recursive indicates checking subfolders
-filelist_fcsv<-list.files(directs, pattern = ".fcsv", recursive = TRUE, full.names = TRUE)
-filelist_pp<-list.files(directs, pattern = ".pp", recursive = TRUE, full.names = TRUE)
-filelist_stl<-list.files(directs, pattern = ".stl", recursive = TRUE, full.names = TRUE)
-filelist_vtk<-list.files(directs, pattern = ".vtk", recursive = TRUE, full.names = TRUE)
+filelist_fcsv<-list.files(directs, pattern = ".fcsv", recursive = FALSE, full.names = TRUE)
+filelist_pp<-list.files(directs, pattern = ".pp", recursive = FALSE, full.names = TRUE)
+filelist_stl<-list.files(directs, pattern = ".stl", recursive = FALSE, full.names = TRUE)
+#filelist_vtk<-list.files(directs, pattern = ".vtk", recursive = FALSE, full.names = TRUE)
 
 #filelistply<-list.files("G:/0CT Scans", pattern = ".ply", recursive = TRUE)
 
@@ -130,22 +205,33 @@ rw<- str_subset(filelist, "RW")
 ca<- str_subset(filelist, "CA") 
 ca<- str_subset(filelist, "CA") 
 
+dir.create("D:/Input/may25_2019")
+setwd("D:/Input/may25_2019")
+##############################create folders
+for (i in folders){
+  dir.create(i)
+}
 
 #Loop through the file list to COPY FILES to the desired folder:
 for (i in filelist_fcsv){
-  file.copy(i, "D:/May1 salvinprionsreplicates", copy.date = TRUE)
+  file.copy(i, "E:/Input/may3rd", copy.date = TRUE)
 }
 
 for (i in filelist_stl){
-  file.copy(i, "D:/May1 salvinprionsreplicates", copy.date = TRUE)
+  file.copy(i, "E:/Input/may3rd", copy.date = TRUE)
 }
 
 for (i in filelist_pp){
-  file.copy(i, "D:/May1 salvinprionsreplicates", copy.date = TRUE)
+  file.copy(i, "E:/Input/may3rd", copy.date = TRUE)
 }
 
 #create folders
-setwd("D:/May1 salvinprionsreplicates/")
+setwd("E:/Input/may3rd")
+
+folders<-c("RD02r2_2019",
+           "RD08r2_2019",
+           "RD10r2_2019",
+           "RD09r2_2019")
 #folders<-c("RD01r1","RD02r1","RD03r1","RD04r1","RD08r1","RD09r1","RD10r1")
 folders<-c("SAL01r2_2019",
 "SAL03r2_2019",
@@ -161,6 +247,7 @@ folders<-c("SGPT-01-2019","SGS-01-2019","Puffin01-2019","HI-01-2019","OP-01-2019
 folders<-c("H414_2019",         "BO_02_2019",       "Ostrich01_2019",       "ADP01_2019",
   "BP_01_2019",           "AP253_2019")
 
+##############################create folders
 for (i in folders){
   dir.create(i)
 }

@@ -6,10 +6,10 @@ library(rgl)#plotting
 index<-2
 
 for (i in 1:2){
-d_ID<-list.dirs("D:/Input/May1 salvinprionsreplicates", full.names = FALSE)#list folders with specimens
-d_direct<-list.dirs("D:/Input/May1 salvinprionsreplicates")#list folder directories, 1 folder per specimen
+d_ID<-list.dirs("E:/Input/redo may 4/again2", full.names = FALSE)#list folders with specimens
+d_direct<-list.dirs("E:/Input/redo may 4/again2")#list folder directories, 1 folder per specimen
 direct<-setwd(d_direct[index])#go through directories
-ID<-d_ID[index]#go through IDs
+ID<-paste0(d_ID[index],"Correct_")#go through IDs
 }
 #list.files(direct)
 TM<-list.files(direct, pattern = "TM", recursive = TRUE, full.names = TRUE)
@@ -34,25 +34,25 @@ RWcurve<-as.data.frame(digit.curves(start = RWperimeter[1,], curve = RWperimeter
 CAcurve<-as.data.frame(digit.curves(start = CAperimeter[1,], curve = CAperimeter, nPoints = 15, closed = TRUE))#make equidistant points
 
 #run calculation scripts
-calculationfiles<-list.files("D:/0earmeasures/Scan_measurements/calculations", pattern = "*.R", full.names = TRUE)#########check dir here
+calculationfiles<-list.files("E:/0earmeasures/Scan_measurements/calculations", pattern = "*.R", full.names = TRUE)#########check dir here
 sapply(calculationfiles,source,.GlobalEnv)# run the calculations from the R scripts
 #source(calculationfiles[4])
 
 #plot wireframe diagram of ear based input corrdinates. Will prompt for the 3D *.stl file for the columella
-setwd("D:/0earmeasures/Scan_measurements/")
+setwd("E:/0earmeasures/Scan_measurements/")
 source("plot_ear_auto_STL.R")
 
 ####CHECK OUTPUT PATH DRIVE IS GOING TO CORRECT USB/ HARD DRIVE"
 #set output paths for saving the computed values
-outputpathsingles<-"D:/Outputs/Singlevalues/"#calculated values
-outputpathangles<-"D:/Outputs/TM angles/"#angles for all 
-outputpathcoords<-"D:/Outputs/Coordinates/"# all computed coordinates on a single csv file
-snapshotpath<-"D:/Outputs/Snapshots/"#directory for wirefram snapshots
-outputfcsv<-"D:/Outputs/FCSVs/"
-STLpath<-"D:/Outputs/STLs/"
+outputpathsingles<-"E:/Outputs/Singlevalues/"#calculated values
+outputpathangles<-"E:/Outputs/TM angles/"#angles for all 
+outputpathcoords<-"E:/Outputs/Coordinates/"# all computed coordinates on a single csv file
+snapshotpath<-"E:/Outputs/Snapshots/"#directory for wirefram snapshots
+outputfcsv<-"E:/Outputs/FCSVs/"
+STLpath<-"E:/Outputs/STLs/"
 
 #Save the computations and coordinates
-setwd("D:/0earmeasures/Scan_measurements/")
+setwd("E:/0earmeasures/Scan_measurements/")
 source("outputs.R")
 
 
