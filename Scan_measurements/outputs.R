@@ -39,6 +39,29 @@ for (i in singlevallist){
     assign(i,NA)
   }
 }
+##check if exists
+#existstatus<-sapply(singlevallist,exists)
+#
+##if it doesn't exist give it the value NA
+#for (i in seq_along(existstatus)){
+#  d[i]<-ifelse(existstatus[i] == TRUE, get(singlevallist[i]),"NA")
+#  names(d)<-singlevallist
+#}
+
+singlevallist<-c(Umbo_distancetoTMplane,
+coltip_distancetoTMplane,
+totalEClength,
+totalcollength,
+totalECDlength,
+meanTMangle,
+sdTMangle,
+angle_FP_TM,
+angle_Col_EC,
+TMtotalarea,
+FPtotalarea,
+CAtotalarea,
+RWtotalarea,
+dis_coltip_TMcentroid)
 
 singlevals<-as.data.frame(rbind(Umbo_distancetoTMplane,
 coltip_distancetoTMplane,

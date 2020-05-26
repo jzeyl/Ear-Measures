@@ -10,6 +10,14 @@
 #plane = Ax+By+Cz+D = 0
 #distance = abs(ax+by+cz+d)/sqrt((a^2)+(b^2)+(c^2))
 
+#6) endosseous cochlear duct ECDlength
+FPcentroidsingle<-as.data.frame(cbind(mean(FPcurve[,1]),mean(FPcurve[,2]),mean(FPcurve[,3])))#calculate centroid
+ECDtip<-(ECpoints[5,])#note***
+ECDlength<-(ECDtip-FPcentroidsingle)^2
+totalECDlength<-sqrt(ECDlength[,1]+ECDlength[,2]+ECDlength[,3])
+FP_ECD<-rbind(FPcentroidsingle,ECDtip)
+
+
 #1) distance from umbo to plane of best fit
 Umbo_distancetoTMplane<-abs((TMa*TMtipsingle[,1])+(TMb*TMtipsingle[,2])+(TMc*TMtipsingle[,3])+TMd)/
   sqrt(((TMa^2)+(TMb^2)+(TMc^2)))
@@ -34,9 +42,3 @@ dis_coltip_TMcentroid<-(TMcentroid-Coltip)^2
 dis_coltip_TMcentroid<-sqrt(dis_coltip_TMcentroid[,1]+dis_coltip_TMcentroid[,2]+dis_coltip_TMcentroid[,3])
 coltoTMcentroid<-rbind(TMcentroid,Coltip)
 
-#6) endosseous cochlear duct ECDlength
-FPcentroidsingle<-as.data.frame(cbind(mean(FPcurve[,1]),mean(FPcurve[,2]),mean(FPcurve[,3])))#calculate centroid
-ECDtip<-(ECpoints[5,])#note***
-ECDlength<-(ECDtip-FPcentroidsingle)^2
-totalECDlength<-sqrt(ECDlength[,1]+ECDlength[,2]+ECDlength[,3])
-FP_ECD<-rbind(FPcentroidsingle,ECDtip)
