@@ -1,3 +1,36 @@
+#directs may 28 2020
+
+Brownskua<-
+Kittiwake<-"F:/0CT Scans/1_Jan 2019/18012018_09 K151/k151 oct17 16bbackofhead/earcrp"
+
+Greatshearwater<-"D:/0backof head analyses/3_Dec 12 crp export/09 great shearwater/earcrp"
+Bankcorm<-"D:/0backof head analyses/2_Oct 30 earregion expt/6_BC-01-2019/earcrp"
+Canary<-"D:/0backof head analyses/7_Feb23 crops/23022020 CT Scans/23032020_02 Can-01-20/Stack/earcrp"
+WCPion<-"D:/0backof head analyses/7_Feb23 crops/23022020 CT Scans/23032020_08 WCPion-01-2020/Stack/earcrp"
+Goldf01<-"D:/0backof head analyses/1_Oct 17export/1_GoldF01/earcropped"
+CSB<-"D:/0backof head analyses/7_Feb23 crops/23022020 CT Scans/23032020_01 CSB-01-2019/Stack/earcrp"
+SHen<-"D:/0backof head analyses/7_Feb23 crops/23022020 CT Scans/23032020_09 SHen-01-2020/Stack/earcrp"
+Hoopoe<-"D:/0backof head analyses/7_Feb23 crops/23022020 CT Scans/23032020_05 HP-01-2020/Stack/earcrp"
+GH01<-"D:/0backof head analyses/7_Feb23 crops/23022020 CT Scans/24032020_04 GH-01-2020/Stack/earcrp"
+Ctiel<- "D:/0backof head analyses/7_Feb23 crops/23022020 CT Scans/23032020_07 Ctiel-01-2020/Stack/earcrp"
+Eparr<-"D:/0backof head analyses/7_Feb23 crops/23022020 CT Scans/24032020_03 Eparr-01-2020/Stack/earcrp"
+BSW<-"D:/0backof head analyses/7_Feb23 crops/23022020 CT Scans/23032020_03 BSW-01-2020/Stack/earcrp"
+Hcrow<-"D:/0backof head analyses/7_Feb23 crops/23022020 CT Scans/24032020_01 Hcrow/Stack/earcrp"
+
+directs<-c(Bankcorm,  BSW  ,          Canary    ,      CSB         ,    Ctiel ,          Eparr  ,        
+GH01    ,       Goldf01    ,     Greatshearwater, Hcrow    ,       Hoopoe    ,      SHen  ,         
+WCPion)
+#folder names must be in exact same orderas directs!!!
+folders<-c("Bankcorm",  "BSW"  ,          "Canary"    ,      "CSB"         ,    "Ctiel" ,          "Eparr"  ,        
+           "GH01"    ,       "Goldf01"    ,     "Greatshearwater", "Hcrow"    ,       "Hoopoe"    ,      "SHen"  ,         
+           "WCPion")
+
+#create folders
+cat(ls(),sep = "','")
+
+
+
+  
 <<<<<<< HEAD
 CDP01<-"F:/0CT Scans/4_Cambridge Jul 2019/CDP-01-2019 [2019-07-22 17.08.11]/CDP-01-2019_01/test cropped from raw"
 Gimmer01<-"F:/0morphosource witmer/gavia/measuresmay21"
@@ -32,10 +65,18 @@ for (i in seq_along(directs)){
   fcsvmasterlist[[i]]<-list.files(directs[i], pattern = ".fcsv", recursive = FALSE, full.names = TRUE)
 }
 
+#create folder and add files to these
+inputdirect<-"E:/Input/may28_2020"
+dir.create(inputdirect)
+##############################create separate folders for each specimen
+for (i in seq_along(folders)){
+  dir.create(paste0(inputdirect,"/",folders[i]))
+}
+
 #FCSV - place the files directly in the folders assigned to them
 for (i in seq_along(fcsvmasterlist)){
   for (j in seq_along(folders)){
-    file.copy(fcsvmasterlist[[i]][j], paste0("D:/Input/may25_2019","/",folders[i]), copy.date = TRUE)
+    file.copy(fcsvmasterlist[[i]][j], paste0(inputdirect,"/",folders[i]), copy.date = TRUE)
   }
 }
 
@@ -48,7 +89,15 @@ for (i in seq_along(directs)){
 #STL - place the files directly in the folders assigned to them
 for (i in seq_along(stlmasterlist)){
   for (j in seq_along(folders)){
-    file.copy(stlmasterlist[[i]][j], paste0("D:/Input/may25_2019","/",folders[i]), copy.date = TRUE)
+    file.copy(stlmasterlist[[i]][j], paste0(inputdirect,"/",folders[i]), copy.date = TRUE)
+  }
+}
+stlmasterlist2nd<-stlmasterlist[c(9:13)]
+folders2nd<-folders[c(9:13)]
+#STL - place the files directly in the folders assigned to them
+for (i in seq_along(stlmasterlist2nd)){
+  for (j in seq_along(folders2nd)){
+    file.copy(stlmasterlist2nd[[i]][j], paste0(inputdirect,"/",folders2nd[i]), copy.date = TRUE)
   }
 }
 
