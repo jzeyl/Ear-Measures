@@ -1,7 +1,9 @@
-#directs may 28 2020
 
 Brownskua<-
-Kittiwake<-"F:/0CT Scans/1_Jan 2019/18012018_09 K151/k151 oct17 16bbackofhead/earcrp"
+  Kittiwake<-"F:/0CT Scans/1_Jan 2019/18012018_09 K151/k151 oct17 16bbackofhead/earcrp"
+
+
+#directs may 28 2020
 
 Greatshearwater<-"D:/0backof head analyses/3_Dec 12 crp export/09 great shearwater/earcrp"
 Bankcorm<-"D:/0backof head analyses/2_Oct 30 earregion expt/6_BC-01-2019/earcrp"

@@ -3,16 +3,19 @@ library(Morpho)#read.mpp function
 library(geomorph)#digit curves function
 library(rgl)#plotting
 
-inputfolder<- "D:/Input/may25_2019"
-Volume<- "D"
+#####################################
+######################################LOAD DATA
 
-index<-3
+inputfolder<- "E:/Input/may28_2020"
+Volume<- "E"
+
+index<-4
 
 for (i in 1:2){
 d_ID<-list.dirs(inputfolder, full.names = FALSE)#list folders with specimens
 d_direct<-list.dirs(inputfolder)#list folder directories, 1 folder per specimen
 direct<-setwd(d_direct[index])#go through directories
-ID<-paste0(d_ID[index],"Correct_")#go through IDs
+ID<-paste0(d_ID[index],"")#go through IDs paste note if necessary
 }
 #list.files(direct)
 TM<-list.files(direct, pattern = " TM.fcsv", recursive = TRUE, full.names = TRUE)
@@ -25,6 +28,9 @@ col<-grep("col", stl, value = TRUE)
 
 lengths<-c(length(TM),length(EC),length(FP),length(RW),length(CA),length(TM),length(col))
 lengths
+
+#####################################
+######################################RUN CALCULATIONS
 
 #load coordinate files in this order: TM, EC, FP (pp), RW, CA
 TMperimeter<-read.fcsv(TM)
@@ -45,9 +51,14 @@ calculationfiles<-list.files(paste0(Volume,":/0earmeasures/Scan_measurements/cal
 sapply(calculationfiles,source,.GlobalEnv)# run the calculations from the R scripts
 #source(calculationfiles[4])
 
+
+#####################3
+#################### CHECK WIREFRAME PLOTS
 #plot wireframe diagram of ear based input corrdinates. Will prompt for the 3D *.stl file for the columella
 setwd(paste0(Volume,":/0earmeasures/Scan_measurements/"))
 source("plot_ear_auto_STL.R")
+
+##################EXPORT#############
 
 ####CHECK OUTPUT PATH DRIVE IS GOING TO CORRECT USB/ HARD DRIVE"
 #set output paths for saving the computed values
@@ -62,8 +73,8 @@ STLpath<-paste0(Volume,":/Outputs/STLs/")
 setwd(paste0(Volume,":/0earmeasures/Scan_measurements/"))
 source("outputs.R")
 
-for (i in seq_along(stl)){
-file.copy(from = stl[i], to = paste0(outputfcsv,ID,"/"))
-}
+#for (i in seq_along(stl)){
+#file.copy(from = stl[i], to = paste0(outputfcsv,ID,"/"))
+#}
 
 
