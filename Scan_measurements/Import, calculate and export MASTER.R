@@ -6,10 +6,10 @@ library(rgl)#plotting
 #####################################
 ######################################LOAD DATA
 
-inputfolder<- "E:/Input/may28_2020"
-Volume<- "E"
+inputfolder<- "D:/Input/Jun2_2020"
+Volume<- "D"
 
-index<-4
+index<-13
 
 for (i in 1:2){
 d_ID<-list.dirs(inputfolder, full.names = FALSE)#list folders with specimens
@@ -72,7 +72,7 @@ STLpath<-paste0(Volume,":/Outputs/STLs/")
 #Save the computations and coordinates
 setwd(paste0(Volume,":/0earmeasures/Scan_measurements/"))
 source("outputs.R")
-
+ID
 #for (i in seq_along(stl)){
 #file.copy(from = stl[i], to = paste0(outputfcsv,ID,"/"))
 #}

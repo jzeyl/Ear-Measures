@@ -9,6 +9,7 @@ remove(shiftedone)
 #Compute centroid of footplate perimeter
 FPcentroid<-as.data.frame(cbind(mean(FPcurve[,1]),mean(FPcurve[,2]),mean(FPcurve[,3])))#calculate centroid
 
+
 #repeat centroid n x length of curve for euclidean distance measurements
 FPcentroid<-FPcentroid[rep(seq_len(nrow(FPcentroid)), each=dim(FPcurve)[1]),]
 

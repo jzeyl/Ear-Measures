@@ -18,7 +18,7 @@ lines3d(coltoTMcentroid[,1],coltoTMcentroid[,2],coltoTMcentroid[,3], col = "brow
 colmodel<-readSTL(col)#add columella stl model
 
 planes3d(TMa, TMb, TMc, TMd, alpha = 0.5, color = "blue")#plot plane of tympanic membrane
-#planes3d(FPa, FPb, FPc, FPd, alpha = 0.5, color = "blue")#plot plane of footplate
+planes3d(FPa, FPb, FPc, FPd, alpha = 0.5, color = "blue")#plot plane of footplate
 
 #axes3d()#axes
 #label ID

@@ -1,7 +1,7 @@
 
 #main dataframe
 df<-read.csv(file.choose())
-df<-df[1:119,]
+df<-df[1:144,]
 str(df)
 #names(df)
 #names(df)[c(9,47:60)]
@@ -16,12 +16,12 @@ str(df)
 dfadding<-read.csv(file.choose())
 str(dfadding)
 
-colnames(dfadding)[5:19]<-c(
-"Umbo_distancetoTMplane",  "coltip_distancetoTMplane", "totalEClength" ,          
-"totalcollength"        ,  "totalECDlength"          , "meanTMangle"   ,          
-"sdTMangle"             ,  "angle_FP_TM"             , "angle_Col_EC"  ,          
- "TMtotalarea"          ,   "FPtotalarea"            ,  "CAtotalarea"  ,           
- "RWtotalarea"          ,   "dis_coltip_TMcentroid")
+#colnames(dfadding)[5:19]<-c(
+#"Umbo_distancetoTMplane",  "coltip_distancetoTMplane", "totalEClength" ,          
+#"totalcollength"        ,  "totalECDlength"          , "meanTMangle"   ,          
+#"sdTMangle"             ,  "angle_FP_TM"             , "angle_Col_EC"  ,          
+# "TMtotalarea"          ,   "FPtotalarea"            ,  "CAtotalarea"  ,           
+# "RWtotalarea"          ,   "dis_coltip_TMcentroid")
 
 #the rows that have matching codes between new values and the main DF:
 match(dfadding$Codematchingmaindf,df$Code)# gives the row numbers present in the larger, df
@@ -45,5 +45,5 @@ df$dis_coltip_TMcentroid[match(dfadding$Codematchingmaindf,df$Code)]<-dfadding$d
 df$Columella.length.mm[match(dfadding$Codematchingmaindf,df$Code)]<-dfadding$length
 df$Columella.volume.mm3[match(dfadding$Codematchingmaindf,df$Code)]<-dfadding$Volume
 
-write.csv(df,"D:/0Earmeasurements/earmeasurements/May29batchadded.csv")
+write.csv(df,"E:/0Earmeasurements/earmeasurements/Jun2batchadded.csv")
 

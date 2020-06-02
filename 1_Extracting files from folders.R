@@ -1,8 +1,65 @@
+#step 1 - make directories and list of folders to create, based on the same object names
 
-Brownskua<-
-  Kittiwake<-"F:/0CT Scans/1_Jan 2019/18012018_09 K151/k151 oct17 16bbackofhead/earcrp"
+#create folder and add files to these
+inputdirect<-"D:/Input/Jun2_2020"
+dir.create(inputdirect)
+
+##############################create separate folders for each specimen
+for (i in seq_along(folders)){
+  dir.create(paste0(inputdirect,"/",folders[i]))
+}
+
+#FCSV - put lists of files for each species into a master list of lists
+fcsvmasterlist<-list()
+for (i in seq_along(directs)){
+  fcsvmasterlist[[i]]<-list.files(directs[i], pattern = ".fcsv", recursive = FALSE, full.names = TRUE)
+}
 
 
+#FCSV - place the files directly in the folders assigned to them
+for (i in seq_along(fcsvmasterlist)){
+  for (j in seq_along(folders)){
+    file.copy(fcsvmasterlist[[i]][j], paste0(inputdirect,"/",folders[i]), copy.date = TRUE)
+  }
+}
+
+#STL - put lists of files for each species into a master list of lists
+stlmasterlist<-list()
+for (i in seq_along(directs)){
+  stlmasterlist[[i]]<-list.files(directs[i], pattern = ".stl", recursive = FALSE, full.names = TRUE)
+}
+
+#STL - place the files directly in the folders assigned to them
+for (i in seq_along(stlmasterlist)){
+  for (j in seq_along(folders)){
+    file.copy(stlmasterlist[[i]][j], paste0(inputdirect,"/",folders[i]), copy.date = TRUE)
+  }
+}
+
+#directories Jun 2 2020
+Clapwing<-"D:/0backof head analyses/1_Oct 17export/6_CL/earcropped"
+BSK<-"D:/0backof head analyses/1_Oct 17export/7_BSK/earregionexpt/earcropped"
+AGP01<-"D:/0backof head analyses/1_Oct 17export/9_african grey parrot/earregion/earcrop"
+CRChat<-"D:/0backof head analyses/7_Feb23 crops/23022020 CT Scans/23032020_04 CRChat-01-2020/Stack/earcrp"
+BCLory<-"D:/0backof head analyses/6_Feb12crops/BCL-01-2019/earcrp"
+CFranc<-"D:/0backof head analyses/5_Feb7crops/CFranc-01-2019/earcrp"
+CFisc<-"D:/0backof head analyses/6_Feb12crops/Cfisc-01-2019/earcrp"
+FTDrongo<-"D:/0backof head analyses/6_Feb12crops/FTdrong-01-2019/earcrp"
+
+directs<-c(AGP01,    BCLory,   BSK,      CFisc,    CFranc ,  Clapwing, CRChat,   FTDrongo)
+folders<-c("AGP01",    "BCLory",   "BSK" ,     "CFisc" ,   "CFranc" ,  "Clapwing", "CRChat",   "FTDrongo")
+
+CMH<-"F:/0CT Scans/6_Sept 2 2019/02092019_04 CMH-01-2019/cmhear/crp"
+WSP<-"F:/0CT Scans/4_Cambridge Jul 2019/WSP-01-.... BAS [2019-07-23 16.15.17]/WSP-01-.... BAS_01/colaug12"
+SPS<-"F:/0CT Scans/4_Cambridge Jul 2019/SPS-02-BAS [2019-07-23 11.42.04]/SPS-02-BAS_01/earcrp"
+AP<-"F:/0CT Scans/4_Cambridge Jul 2019/AP-01-2011 [2019-07-23 09.42.20]/16Bearcrp Nov 27"
+LBBG<-"F:/0CT Scans/4_Cambridge Jul 2019/Lesser black backed gull [2019-07-23 15.37.12]/Lesser black backed gull_01/earregion crped"
+Brownskua<-"F:/0CT Scans/3_Jul19 2019/19072019_08 BS-01 SANCCOB/BS01 back of head oct 17"
+Kittiwake<-"F:/0CT Scans/4_Cambridge Jul 2019/Kittiwake [2019-07-22 10.40.37]/Kittiwake_01/colaug13"
+
+directs<-c(AP ,       Brownskua ,CMH ,      Kittiwake, LBBG ,     SPS ,      WSP )
+folders<-c("AP" ,       "Brownskua" ,"CMH" ,      "Kittiwake", "LBBG" ,     "SPS" ,      "WSP" ) 
+  
 #directs may 28 2020
 
 Greatshearwater<-"D:/0backof head analyses/3_Dec 12 crp export/09 great shearwater/earcrp"
@@ -61,39 +118,6 @@ folders<-c("CDP01","Gimmer01","Eider01","CRC01","SSW01","K151","SGdivingpetrel",
 #filelist_pp<-list.files(directs, pattern = ".pp", recursive = FALSE, full.names = TRUE)
 #filelist_stl<-list.files(directs, pattern = ".stl", recursive = FALSE, full.names = TRUE)
 
-#FCSV - put lists of files for each species into a master list of lists
-fcsvmasterlist<-list()
-for (i in seq_along(directs)){
-  fcsvmasterlist[[i]]<-list.files(directs[i], pattern = ".fcsv", recursive = FALSE, full.names = TRUE)
-}
-
-#create folder and add files to these
-inputdirect<-"E:/Input/may28_2020"
-dir.create(inputdirect)
-##############################create separate folders for each specimen
-for (i in seq_along(folders)){
-  dir.create(paste0(inputdirect,"/",folders[i]))
-}
-
-#FCSV - place the files directly in the folders assigned to them
-for (i in seq_along(fcsvmasterlist)){
-  for (j in seq_along(folders)){
-    file.copy(fcsvmasterlist[[i]][j], paste0(inputdirect,"/",folders[i]), copy.date = TRUE)
-  }
-}
-
-#STL - put lists of files for each species into a master list of lists
-stlmasterlist<-list()
-for (i in seq_along(directs)){
-  stlmasterlist[[i]]<-list.files(directs[i], pattern = ".stl", recursive = FALSE, full.names = TRUE)
-}
-
-#STL - place the files directly in the folders assigned to them
-for (i in seq_along(stlmasterlist)){
-  for (j in seq_along(folders)){
-    file.copy(stlmasterlist[[i]][j], paste0(inputdirect,"/",folders[i]), copy.date = TRUE)
-  }
-}
 stlmasterlist2nd<-stlmasterlist[c(9:13)]
 folders2nd<-folders[c(9:13)]
 #STL - place the files directly in the folders assigned to them
