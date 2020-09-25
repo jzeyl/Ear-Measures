@@ -9,16 +9,25 @@ for (i in 1:length(directs)){
   dtif<-file.info(d)
   dtif$name<-row.names(dtif)
   dtif$sizekb<-dtif$size/1000
-  filename<-(dtif[dtif$sizekb>50000,"name"])#get tif files biget than 50 MB. should be only one!
-  num_files<-length(dtif[dtif$sizekb>100000,"name"])
+  filename<-(dtif[dtif$sizekb>30000,"name"])#get tif files biget than 50 MB. should be only one!
+  num_files<-length(dtif[dtif$sizekb>30000,"name"])
   output[i,1]<- filename
   output[i,2]<- num_files
 }
 ############check that the second colum only pulls up one patch per directory
+View(output)
 
+#check that folders match file list
 volumestocopy<-output[,1]#
+folders
+f<-cbind(volumestocopy,folders)
+View(f)
 
-outputdir<-"C:/Users/jeffzeyl/Desktop/copyoutput/jun 2 batch"
+outputdir<-"C:/Users/jeffzeyl/Desktop/copyoutput/Jun25 batch"
+#create subfolders
+for(i in seq_along(folders)){
+dir.create(paste0(outputdir,"/",folders[i]))
+}
 #directories to copy to
 #outputfolders<-list.dirs(outputdir, full.names = FALSE)[2:length(
 #  list.dirs(outputdir, full.names = FALSE))]
@@ -29,7 +38,7 @@ for(i in seq_along(volumestocopy)){
 file.copy(volumestocopy[i],paste0(outputdir,"/",folders[i]))
 }
 
-
+#IF YOU MODIFY THE DIRECTS LIST YOU MUST ALSO MODIFY THE FOLDERS LIST
 
 #Greatshearwater<-"E:/0backof head analyses/3_Dec 12 crp export/09 great shearwater/earcrp"
 #Bankcorm<-"E:/0backof head analyses/2_Oct 30 earregion expt/6_BC-01-2019/earcrp"

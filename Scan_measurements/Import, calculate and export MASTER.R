@@ -6,10 +6,15 @@ library(rgl)#plotting
 #####################################
 ######################################LOAD DATA
 
-inputfolder<- "D:/Input/Jun2_2020"
+#
 Volume<- "D"
+batch<- "Aug24_2020"
+inputfolder<- paste0(Volume,":/Input/",batch)
 
-index<-13
+#dir.create(paste0(Volume,":/Outputs/Singlevalues/",batch))#do only once at beginning
+
+
+index<-6
 
 for (i in 1:2){
 d_ID<-list.dirs(inputfolder, full.names = FALSE)#list folders with specimens
@@ -26,7 +31,8 @@ CA<-list.files(direct, pattern = "CA.fcsv", recursive = TRUE, full.names = TRUE)
 stl<-list.files(direct, pattern = "stl", recursive = TRUE, full.names = TRUE)
 col<-grep("col", stl, value = TRUE)
 
-lengths<-c(length(TM),length(EC),length(FP),length(RW),length(CA),length(TM),length(col))
+#check that there is one of each file in the folder
+lengths<-c(length(TM),length(EC),length(FP),length(RW),length(CA),length(col))
 lengths
 
 #####################################
@@ -62,7 +68,7 @@ source("plot_ear_auto_STL.R")
 
 ####CHECK OUTPUT PATH DRIVE IS GOING TO CORRECT USB/ HARD DRIVE"
 #set output paths for saving the computed values
-outputpathsingles<-paste0(Volume,":/Outputs/Singlevalues/")#calculated values
+outputpathsingles<-paste0(Volume,":/Outputs/Singlevalues/",batch)#calculated values
 outputpathangles<-paste0(Volume,":/Outputs/TM angles/")#angles for all 
 outputpathcoords<-paste0(Volume,":/Outputs/Coordinates/")# all computed coordinates on a single csv file
 snapshotpath<-paste0(Volume,":/Outputs/Snapshots/")#directory for wirefram snapshots

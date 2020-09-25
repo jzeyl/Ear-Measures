@@ -1,7 +1,7 @@
 #step 1 - make directories and list of folders to create, based on the same object names
 
 #create folder and add files to these
-inputdirect<-"D:/Input/Jun2_2020"
+inputdirect<-"E:/Input/Sept 25_2020"
 dir.create(inputdirect)
 
 ##############################create separate folders for each specimen
@@ -18,7 +18,7 @@ for (i in seq_along(directs)){
 
 #FCSV - place the files directly in the folders assigned to them
 for (i in seq_along(fcsvmasterlist)){
-  for (j in seq_along(folders)){
+  for (j in seq_along(1:10)){
     file.copy(fcsvmasterlist[[i]][j], paste0(inputdirect,"/",folders[i]), copy.date = TRUE)
   }
 }
@@ -31,10 +31,142 @@ for (i in seq_along(directs)){
 
 #STL - place the files directly in the folders assigned to them
 for (i in seq_along(stlmasterlist)){
-  for (j in seq_along(folders)){
+  for (j in seq_along(1:10)){
     file.copy(stlmasterlist[[i]][j], paste0(inputdirect,"/",folders[i]), copy.date = TRUE)
   }
 }
+
+
+Ngannet<-"F:/0morphosource witmer/northerngannet/OUVC_10995_M42184-76028/earregion"
+TD01<-"F:/0CT Scans/3_Jul19 2019/19072019_06 TD01 rescan/earcrp Aug 5 2020"
+writeClipboard(ls())
+directs<-c(Ngannet,TD01)
+folders<-c("Ngannet","TD01")
+
+LD01<-"D:/0backof head analyses/6_Feb12crops/LD-01-2019/crpcorrectAug5"
+
+directs<-LD01
+folders<-"LD01"
+
+KP01MA<- "D:/August scans backup/Aug 26/KP01MA/earcrp"
+MP01<- "D:/August scans backup/Aug 26/MP01/earcrp"
+WA01<- "D:/August scans backup/Aug 26/WA01/earcrp"
+BBA01<-"D:/August scans backup/Aug 26/BBA01/earcrp"
+ASEO02<-"D:/August scans backup/Aug 26/ASEO02/earcrp"
+GRSH01<-"D:/August scans backup/Aug 27/GRSH01/earcrp"
+SWG01<-"D:/August scans backup/Aug 26/SWG01/earcrp"
+writeClipboard(ls())
+directs<- c(ASEO02,
+            BBA01,
+            GRSH01,
+            KP01MA,
+            MP01,
+            SWG01,
+            WA01)
+folders<- c("ASEO02", "BBA01" , "GRSH01", "KP01MA", "MP01" ,  "SWG01" , "WA01" )
+
+
+list.dirs("D:/August scans backup/Aug 24", full.names = F, recursive = F)
+
+YNA <-  "D:/August scans backup/Aug 24/1 YNA/earcrp/"
+WBC  <-  "D:/August scans backup/Aug 24/2 WBC/earcrp/"
+FE<-    "D:/August scans backup/Aug 24/3 FE/earcrp"
+SA01 <-"D:/August scans backup/Aug 24/SA-01-2019/earcrp/"
+VE01<-"D:/August scans backup/Aug 24/VE-01-2019/earcrp/"
+ls()
+directs<-c(FE     ,   SA01   ,     VE01  ,      WBC  ,       YNA )
+folders<-c("FE" , "SA01"  ,      "VE01"    ,    "WBC"    ,     "YNA" )       
+
+
+#directories Jun 24
+D001<-"E:/0backof head analyses/3_Dec 12 crp export/04D001 2019/crp"
+directs<-D001
+folders<-"D001"
+
+ADP01<-'F:/0CT Scans/4_Cambridge Jul 2019/ADP-01-2019 [2019-07-23 13.19.23]/ADP-01-2019_01/crpears/adpcrop'
+GPeng01<-'F:/0CT Scans/4_Cambridge Jul 2019/GP-01-2019 [2019-07-23 12.22.30]/GP-01-2019_01/GP col aug12'
+Puffin01<-'F:/0CT Scans/4_Cambridge Jul 2019/Puffin [2019-07-22 10.03.02]/Puffin_01/16bit'
+Eider01<-'F:/0CT Scans/4_Cambridge Jul 2019/Eider [2019-07-22 13.01.21]/Eider_01/correct may 21'
+AP253<-"F:/0CT Scans/1_Jan 2019/17012019_07 AP253/AP253 back of head/earcrp"
+CP01<-"F:/0CT Scans/4_Cambridge Jul 2019/CP-01-2019 [2019-07-23 10.21.12]/CP-01-2019_01/earregion"
+
+folders<- c("ADP01"  ,  "AP253",    "CP01"  ,   "Eider01",  "GPeng01" , "Puffin01")
+directs<- c(ADP01,    AP253,    CP01,     Eider01,  GPeng01,  Puffin01)
+
+
+#directories jun 17
+Acrake01_2020<- "D:/0backof head analyses/7_Feb23 crops/23022020 CT Scans/23032020_06 Acrake-01-2020/Stack/earcrp"
+BCouc01_2020<- "D:/0backof head analyses/6_Feb12crops/Bcouc-01-2020/ear_Crp"
+Othrush01_2019<- "D:/0backof head analyses/6_Feb12crops/Othrush-01-2019/earcrp"
+#MDuck_01_2020<- "D:/0_Open data/TIFFS bird skulls/aquatic/shallow dabblers/Anas platyrhynchos digi/Anas platyrhynchos/8bit/crp"
+KTC_01_2020<- "D:/0backof head analyses/6_Feb12crops/KTC-01-2020/earcrp"
+Stch_01_2019<- "D:/0backof head analyses/6_Feb12crops/STch-01-2019/earcrp"
+RCL_01_2019<- "D:/0backof head analyses/2_Oct 30 earregion expt/1_RCL-01-2019/earcrp"
+Apip_02_2019<- "D:/0backof head analyses/2_Oct 30 earregion expt/2_Apip-02-2019/earcrp"
+CLC_01_2019<- "D:/0backof head analyses/2_Oct 30 earregion expt/3_CLC-01-2019/earcrp"
+
+folders<-c("Acrake01_2020",  "Apip_02_2019" ,  "BCouc01_2020" ,  "CLC_01_2019" ,   "KTC_01_2020"   ,
+   "Othrush01_2019", "RCL_01_2019",    "Stch_01_2019"  )
+directs<-c(Acrake01_2020,  Apip_02_2019 ,  BCouc01_2020 ,  CLC_01_2019 ,   KTC_01_2020   ,
+            Othrush01_2019, RCL_01_2019,    Stch_01_2019  )
+
+
+BFAlb_01_2020<- "F:/0morphosource witmer/albatross/OUVC_10905_M44786-81307/WitmerLab_Black-footed_albatross_OUVC_10905_diceCT_TIFF/crp"
+AtordaWitmer_01_2019<- "F:/0morphosource witmer/alca torda/atorda/crpear"
+CternWitmer_01_2020<- "F:/0morphosource witmer/caspiantern/OUVC_11504_M42995-77562/WitmerLab_Caspian-tern_OUVC11504_prescan_DICOM/crp"
+NgannetWitmer01_2020<- "F:/0morphosource witmer/northerngannet/OUVC_10995_M42184-76028/earregion"
+CC209_2019<- "F:/0CT Scans/1_Jan 2019/17012019_01 CC209/oct19 export 16b/earcrp"
+
+folders<-c("AtordaWitmer_01_2019", "BFAlb_01_2020" ,       "CC209_2019"    ,      
+ "CternWitmer_01_2020",  "NgannetWitmer01_2020")
+directs<-c(AtordaWitmer_01_2019, BFAlb_01_2020 ,       CC209_2019    ,      
+           CternWitmer_01_2020,  NgannetWitmer01_2020)
+
+#directories jun10
+BO_02<-"F:/0CT Scans/5_Aug 20 2019/20082019_03 BO-02-2019/barn owl ear export/earcpfull ECDmar13"
+RC<-"F:/0CT Scans/3_Jul19 2019/19072019_02 RC001/reed cormorant16B ear"
+RZB<-"F:/0CT Scans/4_Cambridge Jul 2019/Razorbill [2019-07-22 12.22.36]/Razorbill_01/earcrp/Nov 26 16bit"
+Guill<-"F:/0CT Scans/4_Cambridge Jul 2019/Guillemot [2019-07-22 12.01.41]/Guillemot_01/cropp with both ears"
+Ostrich01<-"F:/0CT Scans/2_Apr26 2019/26042019_07 Ostrich 1/ostrich back of head 16b/ost"
+
+directs<-c(BO_02  ,     Guill   , Ostrich01  , RC  ,        RZB )  
+folders<-c("BO_02"  ,     "Guill"   , "Ostrich01"  , "RC"  ,        "RZB" )       
+
+
+
+
+
+
+
+
+#directories Jun 5 2020
+DCSB<-"F:/0CT Scans/2_Apr26 2019/26042019_04 Double-Collared Sunbird1/16bexport oct17/earcrp"
+OBSB<-"F:/0CT Scans/2_Apr26 2019/26042019_05 Orange breasted Sunbird 1/OBSBback of head/earcrp"
+TO002<-"F:/0CT Scans/3_Jul19 2019/19072019_01 TO_02/oct17 back of head 16b/earcrp"
+SPP<-"F:/0CT Scans/3_Jul19 2019/19072019_07 SPP-01/export oct 17 ear/earcrp"
+GHB<-"F:/0CT Scans/2_Apr26 2019/26042019_02 Ground Hornbill 1/Ear export oct 17/earcrp"
+BSH<-"F:/0CT Scans/5_Aug 20 2019/20082019_06 BSH-01-2019/earcrp Mar3 2020"
+RED<-"F:/0CT Scans/5_Aug 20 2019/20082019_07 RED-01-2019/earregionsept2/earcrp"
+ARP<-"F:/0CT Scans/6_Sept 2 2019/02092019_02 ARP-01-2019/earcrp CAF/earcrp"
+PFalcon<-"F:/0CT Scans/5_Aug 20 2019/20082019_02 PF-01-2019/earregion sep2 CAF/earcropped"
+
+directs<-c( ARP     ,    BSH  ,       DCSB   ,     GHB   ,     OBSB    ,   
+            PFalcon  ,   RED   ,      SPP ,        TO002) 
+folders<-c( "ARP"     ,    "BSH"  ,       "DCSB"    ,    "GHB"  ,  "OBSB"  ,     
+ "PFalcon"    , "RED"  ,       "SPP"  ,       "TO002") 
+
+
+Pcrow<-"D:/0backof head analyses/2_Oct 30 earregion expt/5_Pcrow-1-2019/crowbetter/earregion"
+LFalc<-"D:/0backof head analyses/3_Dec 12 crp export/06 LF-01-2019/earcrp"
+ST007<-"D:/0backof head analyses/3_Dec 12 crp export/05 st007/earcrp"
+TO003<-"D:/0backof head analyses/5_Feb7crops/TO003/earcrp"
+LBird<-"D:/0backof head analyses/6_Feb12crops/LB/earcrp"
+RNeck<-"D:/0backof head analyses/7_Feb23 crops/23022020 CT Scans/24032020_02 RN-02-2019/Stack/earcrp"
+Cparr<-"D:/0backof head analyses/5_Feb7crops/Cparr-02-2019/earcrp"
+
+directs<- c(Cparr, LBird, LFalc, Pcrow, RNeck, ST007, TO003)
+folders<- c("Cparr", "LBird", "LFalc", "Pcrow", "RNeck", "ST007", "TO003")
+
 
 #directories Jun 2 2020
 Clapwing<-"D:/0backof head analyses/1_Oct 17export/6_CL/earcropped"

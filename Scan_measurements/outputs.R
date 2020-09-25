@@ -230,7 +230,7 @@ lines3d(coltoTMcentroid[,1],coltoTMcentroid[,2],coltoTMcentroid[,3], col = "gree
 writeSTL(paste0(outputfcsv,ID, "/",ID,"_coltoTMcentroid.stl"))
 
 #ECD length
-write.fcsv(TMpoint,paste0(outputfcsv,ID, "/",ID,"_ECDlength.fcsv"))
+write.fcsv(FP_ECD,paste0(outputfcsv,ID, "/",ID,"_ECDlength.fcsv"))
 rgl.clear()
 lines3d(FP_ECD[,1],FP_ECD[,2],FP_ECD[,3], col = "purple", lwd = 6)#plot endosseous cochlear duct
 writeSTL(paste0(outputfcsv,ID, "/",ID,"_ECDlength.stl"))

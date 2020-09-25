@@ -1,7 +1,8 @@
 library(dplyr)
 library(readr)
+
 Volume<-"D"
-folder<- "June2_2020"#folder to be created in the out
+folder<- "Aug24_2020"#folder to be created in the out
 
 
 #list the files in a certain file path
@@ -21,10 +22,10 @@ remove<-c(No_x,m)#list of names of redundant columns to remove
 
 #clean the dataframe
 clean<-df[,setdiff(names(df), remove)]#select dataframe columns lacking those redundant columnswithout these columns
-clean$measures<-df$measures#add in measures column
+clean$measures<-df$measures...2#add in measures column
 View(clean)
 
-clean$measures<-gsub("AGP01_","",clean$measures)#remove unique ID from column 
+clean$measures<-gsub("FE_","",clean$measures)#remove unique ID from column 
 
 clean2<-as.data.frame(t(clean))#transpose
 colnames(clean2)<-clean$measures#add column names
