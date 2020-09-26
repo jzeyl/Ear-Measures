@@ -37,8 +37,7 @@ for (i in seq_along(stlmasterlist)){
 }
 
 
-Ngannet<-"F:/0morphosource witmer/northerngannet/OUVC_10995_M42184-76028/crp aug 5"
-TD01<-"F:/0CT Scans/3_Jul19 2019/19072019_06 TD01 rescan/earcrp Aug 5 2020"
+
 writeClipboard(ls())
 directs<-c(Ngannet,TD01)
 folders<-c("Ngannet","TD01")
@@ -46,7 +45,6 @@ folders<-c("Ngannet","TD01")
 directs<-Ngannet
 folders<-"Ngannet"
 
-LD01<-"D:/0backof head analyses/6_Feb12crops/LD-01-2019/crpcorrectAug5"
 
 directs<-LD01
 folders<-"LD01"
@@ -58,6 +56,11 @@ BBA01<-"D:/August scans backup/Aug 26/BBA01/earcrp"
 ASEO02<-"D:/August scans backup/Aug 26/ASEO02/earcrp"
 GRSH01<-"D:/August scans backup/Aug 27/GRSH01/earcrp"
 SWG01<-"D:/August scans backup/Aug 26/SWG01/earcrp"
+Ngannet<-"F:/0morphosource witmer/northerngannet/OUVC_10995_M42184-76028/crp aug 5"
+TD01<-"F:/0CT Scans/3_Jul19 2019/19072019_06 TD01 rescan/earcrp Aug 5 2020"
+LD01<-"D:/0backof head analyses/6_Feb12crops/LD-01-2019/crpcorrectAug5"
+
+
 writeClipboard(ls())
 directs<- c(ASEO02,
             BBA01,
@@ -76,7 +79,7 @@ WBC  <-  "D:/August scans backup/Aug 24/2 WBC/earcrp/"
 FE<-    "D:/August scans backup/Aug 24/3 FE/earcrp"
 SA01 <-"D:/August scans backup/Aug 24/SA-01-2019/earcrp/"
 VE01<-"D:/August scans backup/Aug 24/VE-01-2019/earcrp/"
-ls()
+
 directs<-c(FE     ,   SA01   ,     VE01  ,      WBC  ,       YNA )
 folders<-c("FE" , "SA01"  ,      "VE01"    ,    "WBC"    ,     "YNA" )       
 

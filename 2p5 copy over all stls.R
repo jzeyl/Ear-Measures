@@ -6,8 +6,8 @@ numfolders<- length(list.dirs(inputdirect))
 
 #where the stls will be copied to
 #outputfcsv<-paste0(Volume,":/Outputs/FCSVs/")#note subfolders are indicated in the loops
-output<-"C:/Users/jeffzeyl/Desktop/copyoutput/Jun25 batch/"###############<-input folder here
-dir.create(output)
+output<-"C:/Users/jeffzeyl/Desktop/copyoutput/Sept 11/"###############<-input folder here
+#dir.create(output)
 
 for(n in 2:numfolders){#note first folder is "", lack of folder
 index<-n
