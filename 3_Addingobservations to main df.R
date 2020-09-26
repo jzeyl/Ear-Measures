@@ -1,7 +1,7 @@
 
 #main dataframe
 df<-read.csv(file.choose())
-df<-df[1:144,]
+df<-df[1:145,]
 str(df)
 #names(df)
 #names(df)[c(9,47:60)]

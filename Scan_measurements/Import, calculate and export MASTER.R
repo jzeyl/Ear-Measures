@@ -7,56 +7,21 @@ library(rgl)#plotting
 ######################################LOAD DATA
 
 #
-Volume<- "D"
-batch<- "Aug24_2020"
+index<-9
+Volume<- "E"
+batch<- "Sept 25_2020"
 inputfolder<- paste0(Volume,":/Input/",batch)
 
 #dir.create(paste0(Volume,":/Outputs/Singlevalues/",batch))#do only once at beginning
-
-
-index<-6
-
-for (i in 1:2){
-d_ID<-list.dirs(inputfolder, full.names = FALSE)#list folders with specimens
-d_direct<-list.dirs(inputfolder)#list folder directories, 1 folder per specimen
-direct<-setwd(d_direct[index])#go through directories
-ID<-paste0(d_ID[index],"")#go through IDs paste note if necessary
-}
-#list.files(direct)
-TM<-list.files(direct, pattern = " TM.fcsv", recursive = TRUE, full.names = TRUE)
-EC<-list.files(direct, pattern = " EC.fcsv", recursive = TRUE, full.names = TRUE)
-FP<-list.files(direct, pattern = "points", recursive = TRUE, full.names = TRUE)
-RW<-list.files(direct, pattern = "RW.fcsv", recursive = TRUE, full.names = TRUE)
-CA<-list.files(direct, pattern = "CA.fcsv", recursive = TRUE, full.names = TRUE)
-stl<-list.files(direct, pattern = "stl", recursive = TRUE, full.names = TRUE)
-col<-grep("col", stl, value = TRUE)
-
-#check that there is one of each file in the folder
-lengths<-c(length(TM),length(EC),length(FP),length(RW),length(CA),length(col))
+#check files are all there for calculations
+source("E:/0earmeasures/Scan_measurements/checkfiles.R")
 lengths
 
+
+#####################################RUN CALCULATIONS
+source("E:/0earmeasures/Scan_measurements/run calculations.R")
 #####################################
-######################################RUN CALCULATIONS
-
-#load coordinate files in this order: TM, EC, FP (pp), RW, CA
-TMperimeter<-read.fcsv(TM)
-ECpoints<-read.fcsv(EC)
-FPperimeter<-read.mpp(FP)#read landmarks from meshlab
-RWperimeter<-read.fcsv(RW)
-CAperimeter<-read.fcsv(CA)
-
-#convert point curves to equidistance points using digit curves function from geomorph
-TMcurve<-as.data.frame(digit.curves(start = TMperimeter[1,], curve = TMperimeter, nPoints = 15, closed = TRUE))#make equidistant points
-ECpoints<-as.data.frame(ECpoints)
-FPcurve<-as.data.frame(digit.curves(start = FPperimeter[1,], curve = FPperimeter, nPoints = 15, closed = TRUE))#make equidistant points
-RWcurve<-as.data.frame(digit.curves(start = RWperimeter[1,], curve = RWperimeter, nPoints = 15, closed = TRUE))#make equidistant points
-CAcurve<-as.data.frame(digit.curves(start = CAperimeter[1,], curve = CAperimeter, nPoints = 15, closed = TRUE))#make equidistant points
-
-#run calculation scripts
-calculationfiles<-list.files(paste0(Volume,":/0earmeasures/Scan_measurements/calculations"), pattern = "*.R", full.names = TRUE)#########check dir here
-sapply(calculationfiles,source,.GlobalEnv)# run the calculations from the R scripts
-#source(calculationfiles[4])
-
+#
 
 #####################3
 #################### CHECK WIREFRAME PLOTS
