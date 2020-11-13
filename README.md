@@ -2,7 +2,9 @@
 
 This set of R scripts calculates various 3D linear measurements, angles, and surface areas from 3D coordinate input in the form of *.fcsv (Slicer) or *.pp (MeshLab) files. 
 
-The inputs are 5 files:
+The inputs are a set of *.fcsv files from 3D slicer and picked point files (*pp) fromMeshlab.  These are separate files for 
+
+The inputs are 5 files the tympanic membrane (TM), extracolumella (EC), round window (RW), cochlear aqueduct (CA) and footplate (FP).:
 1) a *.fcsv file outlining the perimeter of the tympanic membrane with > 20 points
 2) a *.fcsv file with 5 coordinates outlining the following landmarks, in this order:
   (1) tip of umbo
@@ -13,6 +15,9 @@ The inputs are 5 files:
 3) a *.pp file from MeshLab outlining the perimeter of the footplate > 20 points
 4) a *.fcsv file outlining the perimeter of the round window with > 20 points
 5)a *.fcsv file outlining the perimeter of the cochlear aqueduct with > 20 points
+
+Example input coordinates are in the 'Input' folder. 
+
 
 The outputs are:
 
@@ -41,7 +46,6 @@ Computed values:
 Script for importing the coordinates and running the calculation scripts:
 > Import, calculate and export MASTER.R
 
-Example input coordinates are in the 'Input' folder. The inputs are a set of *.fcsv files from 3D slicer and picked point files (*pp) fromMeshlab.  These are separate files for the tympanic membrane (TM), extracolumella (EC), round window (RW), cochlear aqueduct (CA) and footplate (FP).
 
 Calculation scripts:
 
@@ -74,4 +78,3 @@ File for combining all measurements and exporting as csv:
 
 > outputs.R
 
-Outputs are (1) csv with all the calculated values, (2) csv file with the angles of calculated for the tympanic membrane perimeter, (3) a coordinates file with all of the curve coordinates and computed landmarks (e.g. centroids)
