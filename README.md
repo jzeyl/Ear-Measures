@@ -1,6 +1,20 @@
 # Ear-measures
 
-This set of R scripts calculates various 3D linear measurements, angles, and surface areas from 3D coordinate input in the form of *.fcsv (Slicer) or *.pp (MeshLab) files. The coordinates were taken from microCT scans of ears, but can be applied to other 3D coordinate data. The outputs are 3 csv files with (1) the computed values, (2) tympanic membrane angles, and (3) the coordinates used for calculations. In addition, there are scripts to plot wireframe diagrams based on the coordinates using the ‘rgl’ package.
+This set of R scripts calculates various 3D linear measurements, angles, and surface areas from 3D coordinate input in the form of *.fcsv (Slicer) or *.pp (MeshLab) files. 
+
+The inputs are 5 files:
+1) a *.fcsv file outlining the perimeter of the tympanic membrane with > 20 points
+2) a *.fcsv file with 5 coordinates outlining the following landmarks, in this order:
+  (1) tip of umbo
+  (2) distal tip of columella
+  (3) tip of suprastapedius
+  (4) tip of infrastapedius
+  (5) tip of endosseous cochlear duct length
+3) a *.pp file from MeshLab outlining the perimeter of the footplate > 20 points
+4) a *.fcsv file outlining the perimeter of the round window with > 20 points
+5)a *.fcsv file outlining the perimeter of the cochlear aqueduct with > 20 points
+
+The outputs are 3 csv files with (1) the computed values, (2) tympanic membrane angles, and (3) the coordinates used for calculations. In addition, there are scripts to plot wireframe diagrams based on the coordinates using the ‘rgl’ package.
 
 
 Script for importing the coordinates and running the calculation scripts:
