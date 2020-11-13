@@ -1,0 +1,6 @@
+run("Raw...", "open=[F:/Dec 12/10122019_01 ZF-01-2019/10122019_01 ZF-01-2019_rar.vol] image=[16-bit Unsigned] width=2183 height=2006 number=1667 little-endian");
+run("8-bit");
+run("Image Sequence... ", "format=TIFF save=[C:/Users/jeffzeyl/Desktop/ZF-01-2019/10122019_01 ZF-01-2019_rar0000.tif]");
+
+run("Raw...", "open=[E:Dec 12/11122019_09 21May2019 GRSH-01-ARR/11122019_09 21May2019 GRSH-01-ARR_rar.vol] image=[16-bit Unsigned] width=1596 height=1452 number=1677 little-endian");
+run("8-bit");

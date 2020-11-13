@@ -1,7 +1,7 @@
 #step 1 - make directories and list of folders to create, based on the same object names
 
 #create folder and add files to these
-inputdirect<-"E:/Input/Sept 25_2020"
+inputdirect<-"E:/Input/Sept 27_2020"
 dir.create(inputdirect)
 
 ##############################create separate folders for each specimen
@@ -35,6 +35,22 @@ for (i in seq_along(stlmasterlist)){
     file.copy(stlmasterlist[[i]][j], paste0(inputdirect,"/",folders[i]), copy.date = TRUE)
   }
 }
+
+CV01<-"D:/August scans backup/Aug 25/CV01/earcrp"
+EMU01<-"D:/August scans backup/Aug 25/EMU01/earcrp"
+JB01<-"D:/August scans backup/Aug 25/JB01/earcrp"
+SGHB<-"D:/August scans backup/Aug 25/SGHB/earcrp"
+SI02<-"D:/August scans backup/Aug 25/SI02/earcrp"
+GKF01<-"D:/August scans backup/Aug 27/GKF01/earcrp"
+GM01<-"D:/August scans backup/Aug 27/GM01/earcrp"
+GWP01<-"D:/August scans backup/Aug 27/GWP01/earcrp"
+BHH01<-"D:/August scans backup/Aug 26/BHH01/earcrp"
+BCRANE01<-"D:/August scans backup/Aug 26/BCrane01/earcrp"
+ME01<-"D:/August scans backup/Aug 26/ME01/earcrp"
+#writeClipboard(ls())
+directs<-c(BCRANE01,BHH01,CV01,EMU01,GKF01,GM01,GWP01,JB01,ME01,SGHB,SI02)
+folders<-c("BCRANE01","BHH01","CV01","EMU01","GKF01","GM01","GWP01","JB01","ME01","SGHB","SI02")
+
 
 
 

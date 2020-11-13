@@ -23,7 +23,7 @@ folders
 f<-cbind(volumestocopy,folders)
 View(f)
 
-outputdir<-"C:/Users/jeffzeyl/Desktop/copyoutput/Sept 11"
+outputdir<-"C:/Users/jeffzeyl/Desktop/copyoutput/Sept 27"
 #create subfolders
 #for(i in seq_along(folders)){
 #dir.create(paste0(outputdir,"/",folders[i]))

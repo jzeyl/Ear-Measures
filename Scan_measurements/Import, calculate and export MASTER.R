@@ -7,9 +7,9 @@ library(rgl)#plotting
 ######################################LOAD DATA
 
 #
-index<-9
+index<-12
 Volume<- "E"
-batch<- "Sept 25_2020"
+batch<- "Sept 27_2020"
 inputfolder<- paste0(Volume,":/Input/",batch)
 
 #dir.create(paste0(Volume,":/Outputs/Singlevalues/",batch))#do only once at beginning

@@ -1,8 +1,8 @@
 library(dplyr)
 library(readr)
 
-Volume<-"D"
-folder<- "Aug24_2020"#folder to be created in the out
+Volume<-"E"
+folder<- "Sept 27_2020"#folder to be created in the out
 
 
 #list the files in a certain file path
@@ -25,7 +25,7 @@ clean<-df[,setdiff(names(df), remove)]#select dataframe columns lacking those re
 clean$measures<-df$measures...2#add in measures column
 View(clean)
 
-clean$measures<-gsub("FE_","",clean$measures)#remove unique ID from column 
+clean$measures<-gsub("BCRANE01_","",clean$measures)#remove unique ID from column 
 
 clean2<-as.data.frame(t(clean))#transpose
 colnames(clean2)<-clean$measures#add column names

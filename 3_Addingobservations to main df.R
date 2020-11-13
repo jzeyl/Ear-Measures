@@ -45,5 +45,5 @@ df$dis_coltip_TMcentroid[match(dfadding$Codematchingmaindf,df$Code)]<-dfadding$d
 df$Columella.length.mm[match(dfadding$Codematchingmaindf,df$Code)]<-dfadding$length
 df$Columella.volume.mm3[match(dfadding$Codematchingmaindf,df$Code)]<-dfadding$Volume
 
-write.csv(df,"D:/0Earmeasurements/earmeasurements/Sept23batchadded.csv")
+write.csv(df,"D:/0Earmeasurements/earmeasurements/Sept28batchadded.csv")
 
