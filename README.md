@@ -13,7 +13,7 @@ The inputs are 5 files the tympanic membrane (TM), extracolumella (EC), round wi
   (4) tip of infrastapedius
   (5) tip of endosseous cochlear duct length
 3) a *.pp file from MeshLab outlining the perimeter of the footplate > 20 points
-4) a *.fcsv file outlining the perimeter of the round window with > 20 points
+4) a *.fcsv file outlining the perimeter of the round window with > 20 points  
 5)a *.fcsv file outlining the perimeter of the cochlear aqueduct with > 20 points
 
 Example input coordinates are in the 'Input' folder. 
