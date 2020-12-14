@@ -14,6 +14,6 @@ RWcurve<-as.data.frame(digit.curves(start = RWperimeter[1,], curve = RWperimeter
 CAcurve<-as.data.frame(digit.curves(start = CAperimeter[1,], curve = CAperimeter, nPoints = 15, closed = TRUE))#make equidistant points
 
 #run calculation scripts
-calculationfiles<-list.files(paste0(Volume,":/0earmeasures/Scan_measurements/calculations"), pattern = "*.R", full.names = TRUE)#########check dir here
+calculationfiles<-list.files("./calculations", full.names = T)#########check dir here
 sapply(calculationfiles,source,.GlobalEnv)# run the calculations from the R scripts
 #source(calculationfiles[4])

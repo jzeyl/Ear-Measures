@@ -1,4 +1,4 @@
-setwd(direct)#####check dir here)
+#setwd(direct)#####check dir here)
 #snapshotpath<-"J:/0measure RW,CA/RWCA/Outputs/Snapshots/"#directory for wirefram shots
 
 #plotting in rgl package
