@@ -70,7 +70,7 @@ File for plotting the planes and coordinates as a wireframe diagram:
 
 > plotearauto.R
 
-![alt text](Capture.PNG)
+![alt text](Capture.png)
 
 File for combining all measurements and exporting as csv:
 
