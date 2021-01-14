@@ -1,41 +1,44 @@
-# import libraries
+##### IMPORT LIBRARIES#####
 library(Morpho)#read.mpp function
 library(geomorph)#digit curves function
 library(rgl)#plotting
 
-#####################################
-######################################LOAD DATA
 
-#
-index<-1
-#Volume<- "C"
-#batch<- "Sept 27_2020"
-#inputfolder<- paste0(Volume,":/Input/",batch)
+######################################LOAD DATA#########
+
+#set working directory to where the R scripts are located
+repositorypath<-"C:/Users/jeffz/Desktop/New folder (2)/Ear-measures/Scan_measurements"
+setwd(repositorypath)
 
 
-setwd("C:/Users/jeffz/Desktop/New folder (2)/Ear-measures/Scan_measurements")
-inputfolder<-paste0(getwd(),"/input")
+#indicate main folder where data are located
+#Each speci all in a subfolder of a main folder. 
+#Index indicates which subfolder to process.
+inputfolder<-"C:/Users/jeffz/Desktop/New folder"
+listdirs(inputfolder)
+index<-3
 
-#dir.create(paste0(Volume,":/Outputs/Singlevalues/",batch))#do only once at beginning
+#set the ID code for the specimen
+ID<-"test2"
+
 #check files are all there for calculations
-source("checkfiles.R")
-lengths
-
 setwd("C:/Users/jeffz/Desktop/New folder (2)/Ear-measures/Scan_measurements")
+source("checkfiles.R")#checks that all the needed files are present in the folder.
+lengths
+#'lengths' should be a sequence of 6 1s. If not, a file is missing, or there are extra files
 
-#####################################RUN CALCULATIONS
+setwd(repositorypath)
+#####################################RUN CALCULATIONS##########
 source("run calculations.R")
-#####################################
-#
 
+setwd(repositorypath)
 #####################3
-#################### CHECK WIREFRAME PLOTS
+#################### CHECK WIREFRAME PLOTS###############
 #plot wireframe diagram of ear based input corrdinates. Will prompt for the 3D *.stl file for the columella
-#setwd(paste0(Volume,":/0earmeasures/Scan_measurements/"))
 source("plot_ear_auto_STL.R")
 
 ##################EXPORT#############
-Volume<-"C:/Users/jeffz/Desktop/out"
+Volume<-"C:/Users/jeffz/Desktop/out"# set base path for file exporting
 dir.create(paste0(Volume,"/Outputs/"))
 dir.create(paste0(Volume,"/Outputs/Singlevalues"))
 dir.create(paste0(Volume,"/Outputs/TM angles"))
@@ -55,7 +58,7 @@ outputfcsv<-paste0(Volume,"/Outputs/FCSVs/")
 STLpath<-paste0(Volume,"/Outputs/STLs/")
 
 #Save the computations and coordinates
-setwd(paste0(Volume,":/0earmeasures/Scan_measurements/"))
+setwd(repositorypath)
 source("outputs.R")
 ID
 #for (i in seq_along(stl)){
