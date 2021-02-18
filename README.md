@@ -1,6 +1,6 @@
 # Ear-measures
 
-This series of R scripts calculates various 3D distance, angle, and surface areas from 3D coordinate input in the form of *.fcsv (from 3D Slicer) or *.pp (from MeshLab) files. 
+This series of R scripts calculates various 3D distance, angle, and surface areas from 3D coordinate input in the form of *.fcsv files (collected from 3D Slicer) or *.pp  files (collected from MeshLab). In addition, there are scripts to plot wireframe renderings of the measurements using the ‘rgl’ package.
 
 ## Data inputs
 The inputs are a set of four *.fcsv files from 3D slicer and one picked point files (*pp) from Meshlab.  Specifically, there are separate coordinates files for tympanic membrane (TM), extracolumella (EC), round window (RW), cochlear aqueduct (CA) and columella footplate (FP):
@@ -39,14 +39,14 @@ The outputs are 3 csv files with
 12)	Round window area	(Inner ear)
 
 
-In addition, there are scripts to plot wireframe diagrams based on the coordinates using the ‘rgl’ package.
+
 
 ## Scripts
 Script for importing the coordinates and running the calculation scripts:
 > Import, calculate and export MASTER.R
 
 
-This script calls the following calculation scripts:
+This main script calls the following calculation scripts:
 
 > 1_Tympanic membrane area, EC object coltip 2nd position.R - calculations of tympanic membrane area    
 2_Footplate area.R - calculation of footplate area  
@@ -58,13 +58,13 @@ This script calls the following calculation scripts:
 8_TM angles and EC_col angle - calculation of angles of the tympanic membrane
 
 
-It also calls a script for plotting the planes and coordinates of the values as a wireframe diagram:
+The main script also calls a script for plotting the planes and coordinates of the values as a wireframe diagram:
 
 > plotearauto.R
 
 ![alt text](Capture.png)
 
-It also calls an export script, which exports the data in different formats:
+The main script calls an export script, which exports the data in different formats:
 
 > outputs.R
 

@@ -13,17 +13,17 @@ setwd(repositorypath)
 
 #indicate main folder where data are located
 #Each speci all in a subfolder of a main folder. 
-#Index indicates which subfolder to process.
-inputfolder<-"C:/Users/jeffz/Desktop/New folder"
-listdirs(inputfolder)
+#Index indicates which subfolder (species) to process.
+inputfolder<-paste0(repositorypath,"/input")
+list.dirs(inputfolder)
 index<-3
+setwd(repositorypath)
 
 #set the ID code for the specimen
-ID<-"test2"
+ID<-"RD04b"
 
-#check files are all there for calculations
-setwd("C:/Users/jeffz/Desktop/New folder (2)/Ear-measures/Scan_measurements")
-source("checkfiles.R")#checks that all the needed files are present in the folder.
+#check that all needed files are there for calculations
+source("checkfiles.R")#
 lengths
 #'lengths' should be a sequence of 6 1s. If not, a file is missing, or there are extra files
 
