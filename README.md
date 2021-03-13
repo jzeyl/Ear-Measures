@@ -19,7 +19,7 @@ The inputs are a set of four *.fcsv files from 3D slicer and one picked point fi
 > Example input coordinates are in the 'Input' folder. 
 
 ## Data outputs
-The outputs are 3 csv files with  
+The outputs are three csv files with  
 (1) the computed values,  
 (2) tympanic membrane angles, and  
 (3) the coordinates used for calculations. 
@@ -37,9 +37,6 @@ The outputs are 3 csv files with
 10)	Length of endosseous cochlear duct	(Inner ear),
 11)	Cochlear aqueduct area	(Inner ear),
 12)	Round window area	(Inner ear)
-
-
-
 
 ## Scripts
 Script for importing the coordinates and running the calculation scripts:
