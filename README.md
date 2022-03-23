@@ -1,6 +1,7 @@
 # Ear-measures
 
 This series of R scripts calculates various 3D distance, angle, and surface areas from 3D coordinate input in the form of *.fcsv files (collected from 3D Slicer) or *.pp  files (collected from MeshLab). In addition, there are scripts to plot wireframe renderings of the measurements using the ‘rgl’ package.
+The permanent doi is here found here [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4661183.svg)](https://doi.org/10.5281/zenodo.4661183)
 
 ## Data inputs
 The inputs are a set of four *.fcsv files from 3D slicer and one picked point files (*pp) from Meshlab.  Specifically, there are separate coordinates files for tympanic membrane (TM), extracolumella (EC), round window (RW), cochlear aqueduct (CA) and columella footplate (FP):
